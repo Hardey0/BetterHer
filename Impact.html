@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterHer - Our Impact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=More+Sugar:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <style>
+        /* Reusing styles from index.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-color: #0149ac; --secondary-color: #fc1963; --accent-color: #f5edb1; --text-dark: #2d3748; --text-light: #718096; --bg-light: #f8f9fa; --white: #ffffff; }
+        body { font-family: 'More Sugar', cursive, sans-serif; line-height: 1.6; color: var(--text-dark); overflow-x: hidden; }
+
+        /* Navbar and Hamburger Styles */
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
+        .navbar.scrolled { background: rgba(255, 255, 255, 1); box-shadow: 0 2px 30px rgba(0,0,0,0.15); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+        .logo img { max-height: 90px; width: auto; object-fit: contain; }
+        .nav-menu { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-link { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease; padding: 0.5rem; }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link:focus::after { width: 100%; }
+        .nav-link:hover, .nav-link:focus { color: var(--primary-color); outline: none; }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 0.5rem; }
+        .hamburger span { width: 30px; height: 4px; background: var(--primary-color); transition: all 0.3s ease; border-radius: 2px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background: white; width: 100%; text-align: center; transition: left 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); padding: 1.5rem 0; }
+            .nav-menu.active { left: 0; }
+            .nav-link { padding: 0.8rem; font-size: 1.1rem; }
+            .cta-button, .learn-more-btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
+            .hero { height: 50vh; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 2.2rem; }
+            .logo img { max-height: 61px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 0.9rem; }
+            .section-title { font-size: 1.8rem; }
+            .logo img { max-height: 55.8px; }
+        }
+
+        .hero { height: 60vh; background: linear-gradient(rgba(1, 73, 172, 0.7), rgba(252, 25, 99, 0.7)), url('assets/IMG_6797 copy1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero h1 { font-size: 3rem; color: var(--accent-color); }
+        .hero p { font-size: 1.2rem; padding-bottom: 0.6em; }
+        .cta-button { display: inline-block; padding: 0.8rem 2rem; background: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4); font-size: 1.1rem; }
+        .cta-button:hover, .cta-button:focus { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(252, 25, 99, 0.6); outline: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
+        .section-title { font-size: 2.8rem; font-weight: bold; color: var(--primary-color); text-align: center; margin-bottom: 2.5rem; position: relative; padding-bottom: 1rem; letter-spacing: 1px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--secondary-color); border-radius: 2px; }
+        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .impact-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; transition: all 0.3s ease; cursor: pointer; }
+        .impact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .impact-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem; }
+        .impact-card iframe { width: 100%; height: 200px; border-radius: 10px; margin-bottom: 1rem; }
+        footer { background: var(--primary-color); color: white; padding: 3rem 1.5rem 1rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h3 { margin-bottom: 1rem; color: var(--accent-color); }
+        .footer-section p { line-height: 1.8; opacity: 0.9; }
+             .footer-section p a:hover{
+            font-size: 1.2em;
+        }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-link { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: var(--secondary-color); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.8; }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .lightbox-item {
+            display: none;
+            max-width: 100%;
+            max-height: 80vh;
+            margin: 10px;
+        }
+        .lightbox-item.active { display: block; }
+        .lightbox-close { position: absolute; top: 10px; right: 10px; color: white; font-size: 2rem; cursor: pointer; }
+        .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 2rem; cursor: pointer; background: rgba(0,0,0,0.5); padding: 10px; }
+        .lightbox-prev { left: 10px; }
+        .lightbox-next { right: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="assets/copy2.png" alt="BetterHer logo"></div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="impact.html" class="nav-link">Impact</a></li>
+                <li><a href="partners.html" class="nav-link">Partners</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Impact</h1>
+            <p>Stories of transformation and empowerment across Nigeria</p>
+            <a href="#impact" class="cta-button">Explore Stories</a>
+        </div>
+    </section>
+
+    <!-- Impact Content -->
+    <section class="impact-content" id="impact">
+        <div class="container">
+            <h2 class="section-title">Transforming Lives</h2>
+            <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">Project Events</h3>
+            <div class="impact-grid">
+                <div class="impact-card" data-folder-id="1kzpgDy5J1wGLTfa96eKkFAFZhhOhhaR9">
+                    <!-- <img src="https://drive.google.com/uc?export=view&id=IMG1" alt="World Health Day - Idi Ogungun"> -->
+                    <img src="assets/IMG_6797 copy.jpg" alt="World Health Day - Idi Ogungun" />
+
+                    <h4>World Health Day - Idi Ogungun</h4>
+                    <p>Health awareness outreach improving community well-being.</p>
+                </div>
+                <div class="impact-card" data-folder-id="1-2nfdSA5s1ZuS8HkgaXz1EzuHsaQzqOR">
+                    <!-- <img src="https://drive.google.com/uc?export=view&id=IMG2" alt="Menstrual Hygiene - UCH Staff"> -->
+                    <img src="assets/IMG_7598.webp" alt="Menstrual Hygiene - UCH Staff">
+                    <h4>Menstrual Hygiene - UCH Staff</h4>
+                    <p>Educating students on hygiene and health rights.</p>
+                </div>
+                <div class="impact-card" data-folder-id="16gavCi9CyRSRowKqecGTDLQF18BV74xX">
+                    <img src="assets/IMG_7604.webp" alt="Menstrual Hygiene - ABH">
+                    <h4>Menstrual Hygiene - ABH</h4>
+                    <p>Empowering women with essential health knowledge.</p>
+                </div>
+                <div class="impact-card" data-folder-id="1-BXX-Qpcx2oEl5GV6Ez8sk7J4NT1ioB0">
+                    <!-- <img src="https://drive.google.com/uc?export=view&id=IMG4" alt="Jesus Kids Orphanage"> -->
+                    <img src="assets/IMG_5154.webp" alt="Jesus Kids Orphanage">
+                    <h4>Jesus Kids Orphanage</h4>
+                    <p>Support and care for orphaned children.</p>
+                </div>
+                <div class="impact-card" data-folder-id="1-2lNMcRvHwevP7OuX1IZj6oRrOC1Xwn9">
+                    <!-- <img src="https://drive.google.com/uc?export=view&id=IMG5" alt="Contraceptive - Idia Hall"> -->
+                    <img src="assets/IMG_9154.webp" alt="Contraceptive - Idia Hall">
+                    <h4>Contraceptive - Idia Hall</h4>
+                    <p>Promoting family planning awareness.</p>
+                </div>
+                <div class="impact-card" data-folder-id="1z2rVVApEv-PjYL9LehojYgPmPUm8Lzsf">
+                    <!-- <iframe src="https://drive.google.com/file/d/VID1/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe> -->
+                    <!-- <iframe src="https://drive.google.com/file/d/VID1/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe> -->
+                     <img src="assets/IMG_8430.webp" alt=" ISI">
+                    <h4>Cervical Cancer - ISI</h4>
+                    <p>cervical cancer awareness efforts.</p>
+                </div>
+            </div>
+            <h3 style="color: var(--primary-color); text-align: center; margin: 2rem 0 1.5rem;">Collaborations</h3>
+            <div class="impact-grid">
+                <div class="impact-card" data-folder-id="165QaRF3AKCeEGjqq545tRbo6W_6N49bl">
+                    <!-- <img src="https://drive.google.com/uc?export=view&id=IMG6" alt="Project WANDEL"> -->
+                    <img src="assets/IMG-20250418-WA0280.jpg" alt="Project WANDEL">
+                    <h4>Project WANDEL</h4>
+                    <p>Collaborative health initiatives with partners.</p>
+                </div>
+                <div class="impact-card" data-folder-id="1vgEw7STWfz0OTIwntY8eoFBnMRFqDXhz">
+                    <!-- <img src="https://drive.google.com/uc?export=view&id=IMG7" alt="Project Promote Health"> -->
+                    <img src="assets/IMG_1124.JPG" alt="Project Promote Health">
+                    <h4>Project Promote Health</h4>
+                    <p>Joint efforts to promote women’s health.</p>
+                </div>
+                <div class="impact-card" data-folder-id="164ltqk56IPyXhAnBCLmruVLt3V9HsznX">
+                    <img src="assets/IMG_8622.JPG" alt="Glea Network">
+                    <h4>Glea Network</h4>
+                    <p>Networked support for health programs.</p>
+                </div>
+                <!-- <div class="impact-card" data-folder-id="1n5OML1tvvqn0_Pw8hXwq8wU1l-O0GDS7">
+                    <iframe src="https://drive.google.com/file/d/VID2/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                    <h4>Dr. Odunayo</h4>
+                    <p>Video collaboration with Dr. Odunayo on health advocacy.</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content"></div>
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev">❮</span>
+        <span class="lightbox-next">❯</span>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #0149ac;">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BetterHer</h3>
+                <p>Dedicated to advancing women's health through innovative care, research, and advocacy across Nigeria and beyond.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61559628361049" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/betterherafrica/" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="http://x.com/betterherafrica" class="social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/betterherafrica/" class="social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="http://wa.me/9023594956" class="social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html" style="color: white; text-decoration: none;">Home</a></p>
+                <p><a href="about.html" style="color: white; text-decoration: none;">About</a></p>
+                <p><a href="impact.html" style="color: white; text-decoration: none;">Impact</a></p>
+                <p><a href="partners.html" style="color: white; text-decoration: none;">Partners</a></p>
+                <p><a href="blog.html" style="color: white; text-decoration: none;">Blog</a></p>
+                <p><a href="volunteer.html" style="color: white; text-decoration: none;">Volunteer</a></p>
+                <p><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:betterherfoundation@gmail.com" style="color: white; text-decoration: none;">betterherfoundation@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+2349023594956" style="color: white; text-decoration: none;">+234 902 359 4956</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Ibadan, Nigeria</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BetterHer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Google Drive API Initialization
+        function initClient() {
+            gapi.client.init({
+                apiKey: 'AIzaSyBL16GH6QKWacQvQ0YCoXXNckt6azdRHQk',
+                discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+            }).then(() => {
+                document.querySelectorAll('.impact-card').forEach(card => {
+                    card.addEventListener('click', () => fetchFolderContent(card.getAttribute('data-folder-id')));
+                });
+            }, error => console.error('Error initializing API client:', error));
+        }
+
+        function gapiLoaded() {
+            gapi.load('client', initClient);
+        }
+
+        function fetchFolderContent(folderId) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.querySelector('.lightbox-content');
+            lightboxContent.innerHTML = '<p>Loading...</p>';
+
+            gapi.client.drive.files.list({
+                q: `'${folderId}' in parents and (mimeType contains 'image/' or mimeType contains 'video/')`,
+                fields: 'files(id, name, mimeType)'
+            }).then(response => {
+                const files = response.result.files;
+                if (files && files.length > 0) {
+                    lightboxContent.innerHTML = '';
+                    files.forEach((file, index) => {
+                        const element = file.mimeType.includes('video') ? document.createElement('iframe') : document.createElement('img');
+                        element.className = 'lightbox-item';
+                        element.src = file.mimeType.includes('video') ? `https://drive.google.com/file/d/${file.id}/preview` : `https://drive.google.com/uc?export=view&id=${file.id}`;
+                        element.alt = file.name;
+                        if (element.tagName === 'IFRAME') element.setAttribute('frameborder', '0');
+                        lightboxContent.appendChild(element);
+                    });
+                    document.querySelector('.lightbox-item').classList.add('active');
+                    lightbox.style.display = 'flex';
+                } else {
+                    lightboxContent.innerHTML = '<p>No files found.</p>';
+                    lightbox.style.display = 'flex';
+                }
+            }, error => {
+                console.error('Error fetching files:', error);
+                lightboxContent.innerHTML = '<p>Error loading files. Check console.</p>';
+                lightbox.style.display = 'flex';
+            });
+        }
+
+        // Lightbox functionality
+        const closeBtn = document.querySelector('.lightbox-close');
+        const prevBtn = document.querySelector('.lightbox-prev');
+        const nextBtn = document.querySelector('.lightbox-next');
+
+        closeBtn.addEventListener('click', () => document.getElementById('lightbox').style.display = 'none');
+        prevBtn.addEventListener('click', () => {
+            const items = document.querySelectorAll('.lightbox-item');
+            const active = document.querySelector('.lightbox-item.active');
+            let prev = active.previousElementSibling || items[items.length - 1];
+            active.classList.remove('active');
+            prev.classList.add('active');
+        });
+        nextBtn.addEventListener('click', () => {
+            const items = document.querySelectorAll('.lightbox-item');
+            const active = document.querySelector('.lightbox-item.active');
+            let next = active.nextElementSibling || items[0];
+            active.classList.remove('active');
+            next.classList.add('active');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.style.display = 'none';
+        });
+
+        // Load API when page loads
+        window.onload = () => {
+            gapiLoaded();
+        };
+    </script>
+</body>
+</html>

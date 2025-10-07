@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterHer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c5f7d;
+            --secondary-color: #89b0c4;
+            --accent-color: #e8a87c;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+           
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link:focus::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(44, 95, 125, 0.7), rgba(44, 95, 125, 0.7)), 
+                        url('bet.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(232, 168, 124, 0.4);
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(232, 168, 124, 0.6);
+            outline: none;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Goals Section */
+        .goals {
+            background: var(--bg-light);
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .goal-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .goal-card.animate {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .goal-card:nth-child(2).animate {
+            animation-delay: 0.2s;
+        }
+
+        .goal-card:nth-child(3).animate {
+            animation-delay: 0.4s;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .goal-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .goal-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .goal-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Vision Section */
+        .vision-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .vision-text {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .vision-text.animate {
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
+        .vision-text h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .vision-text p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .vision-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .vision-image {
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .vision-image.animate {
+            animation: fadeInRight 0.8s ease forwards;
+        }
+
+        .vision-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            background: var(--bg-light);
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 900px;
+            width: 95%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            touch-action: pan-y pinch-zoom;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            user-select: none;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            text-align: center;
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .slide-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-content p {
+            font-size: 0.95rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-form h3 i {
+            color: var(--accent-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: #f7fafc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: white;
+            box-shadow: 0 4px 10px rgba(232, 168, 124, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label {
+            color: var(--accent-color);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover,
+        .submit-button:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(44, 95, 125, 0.3);
+            outline: none;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-color), #f5c089);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover .info-icon {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(232, 168, 124, 0.3);
+        }
+
+        .info-text h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-text p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .click-hint {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin-top: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-item:hover .click-hint {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 1.5rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 0.8rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover,
+        .social-link:focus {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 60px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+                padding: 1.5rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-link {
+                padding: 0.8rem;
+                font-size: 1.1rem;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .hero {
+                height: 70vh;
+                background-attachment: scroll;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .goals-grid,
+            .vision-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .vision-image {
+                height: 200px;
+            }
+
+            .vision-text h3 {
+                font-size: 1.4rem;
+            }
+
+            .vision-text p,
+            .goal-card p,
+            .info-text p,
+            .footer-section p {
+                font-size: 0.9rem;
+            }
+
+            .goal-card,
+            .contact-form,
+            .info-item {
+                padding: 1rem;
+            }
+
+            .contact-form h3 {
+                font-size: 1.3rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+
+            .submit-button {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+
+            .info-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .info-text h4 {
+                font-size: 1rem;
+            }
+
+            .carousel {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .carousel-slide {
+                height: 300px;
+            }
+
+            .slide-content {
+                padding: 1rem;
+            }
+
+            .slide-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .slide-content p {
+                font-size: 0.85rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .social-link {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.8rem;
+            }
+
+            .cta-button {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .vision-text h3 {
+                font-size: 1.2rem;
+            }
+
+            .carousel-slide {
+                height: 250px;
+            }
+
+            .slide-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .slide-content p {
+                font-size: 0.8rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .submit-button {
+                padding: 0.6rem;
+                font-size: 0.85rem;
+            }
+
+            .info-text h4 {
+                font-size: 0.9rem;
+            }
+
+            .info-text p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="logo" aria-label="BetterHer logo">
+                <img src="tobi.jpg" alt="BetterHer logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" aria-label="Home section">Home</a></li>
+                <li><a href="#goals" class="nav-link" aria-label="Our Goals section">Our Goals</a></li>
+                <li><a href="#vision" class="nav-link" aria-label="Vision section">Vision</a></li>
+                <li><a href="#gallery" class="nav-link" aria-label="Gallery section">Gallery</a></li>
+                <li><a href="#contact" class="nav-link" aria-label="Contact section">Contact</a></li>
+            </ul>
+            <div class="hamburger" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" role="banner">
+        <div class="hero-content">
+            <h1>BetterHer</h1>
+            <p>Advancing healthcare, advocacy, and empowerment for women across Nigeria and beyond</p>
+            <a href="#goals" class="cta-button" aria-label="Learn more about our goals">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="goals">
+        <div class="container">
+            <h2 class="section-title">Our Goals</h2>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <div class="goal-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation & Leadership</h3>
+                    <p>To be at the forefront of women's health in Nigeria and beyond through innovative care, impactful advocacy and research, and lasting female empowerment.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Comprehensive Care</h3>
+                    <p>To bridge any existing gaps in delivering comprehensive, high-quality healthcare for women, focusing on practical steps and tailored solutions within local communities.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Policy & Advocacy</h3>
+                    <p>To inform inclusive national and global policies that prioritise optimal living standards and equitable opportunities for women across diverse societies and cultures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="vision-content">
+                <div class="vision-text">
+                    <h3>Building a Healthier Future</h3>
+                    <p>We envision a world where every woman has access to exceptional healthcare services, comprehensive health education, and the support needed to make informed decisions about their wellbeing.</p>
+                    <p>Through evidence-based practices, community engagement, and strategic partnerships, we are committed to creating lasting positive change in women's health outcomes.</p>
+                    <div class="vision-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Evidence-based healthcare practices</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Community-centered approach</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Sustainable health solutions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="vision-image">
+                    <img src="bet.jpg" alt="Healthcare Vision">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section id="gallery" class="carousel-section">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="be.jpeg" alt="Quality Healthcare">
+                        <div class="slide-content">
+                            <h3>Quality Healthcare</h3>
+                            <p>Providing accessible and comprehensive healthcare services</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="bet.jpg" alt="Community Outreach">
+                        <div class="slide-content">
+                            <h3>Community Outreach</h3>
+                            <p>Engaging communities through education and support programs</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="bett.JPG" alt="Research & Innovation">
+                        <div class="slide-content">
+                            <h3>Research & Innovation</h3>
+                            <p>Advancing women's health through cutting-edge research</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="be.jpeg" alt="Education & Empowerment">
+                        <div class="slide-content">
+                            <h3>Education & Empowerment</h3>
+                            <p>Empowering women through knowledge and skill development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3><i class="fas fa-paper-plane"></i> Send Us a Message</h3>
+                    <form id="contactForm" aria-label="Contact form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required aria-describedby="name-error">
+                            <span id="name-error" class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="your.email@example.com" required aria-describedby="email-error">
+                            <span id="email-error" class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Tell us how we can help you..." required aria-describedby="message-error"></textarea>
+                            <span id="message-error" class="error-message"></span>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:betterherfoundation@gmail.com" class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Email Us <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></h4>
+                            <p>betterherfoundation@gmail.com</p>
+                            <span class="click-hint"><i class="fas fa-mouse-pointer"></i> Click to send email</span>
+                        </div>
+                    </a>
+                    <a href="tel:+2349023594956" class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Call Us <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></h4>
+                            <p>+234 902 359 4956</p>
+                            <span class="click-hint"><i class="fas fa-mouse-pointer"></i> Click to call</span>
+                        </div>
+                    </a>
+                    <div class="info-item" style="cursor: default;">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Visit Us</h4>
+                            <p>Lagos, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Dedicated to advancing women's health through innovative care, research, and advocacy across Nigeria and beyond.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home" style="color: white; text-decoration: none;">Home</a></p>
+                <p><a href="#goals" style="color: white; text-decoration: none;">Our Goals</a></p>
+                <p><a href="#vision" style="color: white; text-decoration: none;">Vision</a></p>
+                <p><a href="#contact" style="color: white; text-decoration: none;">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> betterherfoundation@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +234 902 359 4956</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BetterHer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Keyboard navigation for menu
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.goal-card, .vision-text, .vision-image, .contact-form, .info-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Carousel functionality with touch support
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isDragging = false;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function startAutoplay() {
+            autoplayInterval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+
+        function restartAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+
+        // Touch events
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            isDragging = true;
+            stopAutoplay();
+        }, { passive: true });
+
+        carousel.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            touchEndX = e.touches[0].clientX;
+            const diffX = touchStartX - touchEndX;
+            const movePercent = (diffX / carousel.offsetWidth) * 100;
+            track.style.transform = `translateX(calc(-${currentSlide * 100}% + ${movePercent}px))`;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            const diffX = touchStartX - touchEndX;
+            const swipeThreshold = carousel.offsetWidth * 0.2; // 20% of carousel width
+
+            if (diffX > swipeThreshold) {
+                nextSlide();
+            } else if (diffX < -swipeThreshold) {
+                prevSlide();
+            } else {
+                updateCarousel(); // Snap back if swipe is too small
+            }
+
+            restartAutoplay();
+        });
+
+        // Mouse events for desktop
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+
+        // Prevent image drag
+        document.querySelectorAll('.carousel-slide img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+
+        // Start autoplay on load
+        startAutoplay();
+
+        // Contact form validation
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
+            document.querySelectorAll('.form-group').forEach(group => group.classList.remove('error'));
+
+            // Validate name
+            const name = document.getElementById('name').value.trim();
+            if (name.length < 2) {
+                document.getElementById('name-error').textContent = 'Name must be at least 2 characters';
+                document.getElementById('name').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('email-error').textContent = 'Please enter a valid email';
+                document.getElementById('email').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            // Validate message
+            const message = document.getElementById('message').value.trim();
+            if (message.length < 10) {
+                document.getElementById('message-error').textContent = 'Message must be at least 10 characters';
+                document.getElementById('message').parentElement.classList.add('error');
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>

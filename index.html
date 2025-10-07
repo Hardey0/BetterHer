@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BetterHer</title>
+    <title>BetterHer - Empowering Women's Health</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=More+Sugar:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,12 +14,13 @@
         }
 
         :root {
-            --primary-color: #2c5f7d;
-            --secondary-color: #89b0c4;
-            --accent-color: #e8a87c;
+            --primary-color: #0149ac;
+            --secondary-color: #fc1963;
+            --accent-color: #f5edb1;
             --text-dark: #2d3748;
             --text-light: #718096;
-            --bg-light: #f7fafc;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
         }
 
         html {
@@ -26,7 +28,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'More Sugar', cursive, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             overflow-x: hidden;
@@ -63,7 +65,7 @@
         }
 
         .logo img {
-            height: 70px;
+            max-height: 90px;
             width: auto;
             object-fit: contain;
         }
@@ -90,7 +92,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-color);
+            background: var(--secondary-color);
             transition: width 0.3s ease;
         }
 
@@ -136,8 +138,8 @@
         /* Hero Section */
         .hero {
             height: 80vh;
-            background: linear-gradient(rgba(44, 95, 125, 0.7), rgba(44, 95, 125, 0.7)), 
-                        url('bet.jpg');
+            background: linear-gradient(rgba(1, 73, 172, 0.7), rgba(252, 25, 99, 0.7)), 
+                        url('assets/IMG_6797 copy.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -156,48 +158,53 @@
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: var(--accent-color);
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             margin-bottom: 1.5rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            color: white;
         }
 
         .cta-button {
             display: inline-block;
             padding: 0.8rem 2rem;
-            background: var(--accent-color);
+            background: var(--secondary-color);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(232, 168, 124, 0.4);
+            box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4);
+            font-size: 1.1rem;
         }
 
         .cta-button:hover,
         .cta-button:focus {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(232, 168, 124, 0.6);
+            box-shadow: 0 6px 20px rgba(252, 25, 99, 0.6);
             outline: none;
         }
 
         /* Section Styles */
         section {
-            padding: 3rem 1.5rem;
+            padding: 4rem 1.5rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.8rem;
+            font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             position: relative;
-            padding-bottom: 0.8rem;
+            padding-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
         .section-title::after {
@@ -206,15 +213,42 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent-color);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
             border-radius: 2px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .section-summary {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .learn-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(1, 73, 172, 0.3);
         }
 
         /* Goals Section */
@@ -224,18 +258,19 @@
 
         .goals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .goal-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
+            text-align: center;
         }
 
         .goal-card.animate {
@@ -251,39 +286,39 @@
         }
 
         .goal-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .goal-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 0.8rem;
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
 
         .goal-card h3 {
             color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         .goal-card p {
             color: var(--text-light);
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.8;
         }
 
         /* Vision Section */
         .vision-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
         }
 
         .vision-text {
             opacity: 0;
-            transform: translateX(-20px);
+            transform: translateX(-30px);
         }
 
         .vision-text.animate {
@@ -292,41 +327,42 @@
 
         .vision-text h3 {
             color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
         }
 
         .vision-text p {
             color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
         .vision-features {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .feature-item i {
-            color: var(--accent-color);
-            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
         }
 
         .vision-image {
-            height: 300px;
-            border-radius: 15px;
+            height: 400px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             opacity: 0;
-            transform: translateX(20px);
+            transform: translateX(30px);
         }
 
         .vision-image.animate {
@@ -340,276 +376,308 @@
             display: block;
         }
 
-        /* Carousel Section */
-        .carousel-section {
+        /* Impact Section */
+        .impact {
             background: var(--bg-light);
         }
 
-        .carousel {
-            position: relative;
-            max-width: 900px;
-            width: 95%;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            touch-action: pan-y pinch-zoom;
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .carousel-track {
+        .impact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .impact-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .impact-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .impact-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Partners Carousel */
+        .partners {
+            background: white;
+        }
+
+        .partners-carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .partners-track {
             display: flex;
             transition: transform 0.5s ease;
+            animation: scroll 20s linear infinite;
         }
 
-        .carousel-slide {
-            min-width: 100%;
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            user-select: none;
-        }
-
-        .slide-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            text-align: center;
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .slide-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .slide-content p {
-            font-size: 0.95rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--bg-light);
-            position: relative;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transform: translateY(0);
-            transition: all 0.3s ease;
-        }
-
-        .contact-form:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .contact-form h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-form h3 i {
-            color: var(--accent-color);
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.7rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            background: #f7fafc;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            background: white;
-            box-shadow: 0 4px 10px rgba(232, 168, 124, 0.2);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group input:focus + label,
-        .form-group textarea:focus + label {
-            color: var(--accent-color);
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 0.8rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-button:hover,
-        .submit-button:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(44, 95, 125, 0.3);
-            outline: none;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .partners-slide {
+            min-width: 200px;
             padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .info-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .info-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent-color), #f5c089);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+        }
+
+        .partners-slide img {
+            max-height: 80px;
+            max-width: 150px;
+            object-fit: contain;
+            filter: grayscale(100%);
             transition: all 0.3s ease;
         }
 
-        .info-item:hover .info-icon {
+        .partners-slide:hover img {
+            filter: grayscale(0%);
             transform: scale(1.1);
-            box-shadow: 0 4px 10px rgba(232, 168, 124, 0.3);
         }
 
-        .info-text h4 {
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Volunteer Section */
+        .volunteer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+
+        .volunteer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .volunteer h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .volunteer p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .volunteer-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
             color: var(--primary-color);
-            margin-bottom: 0.4rem;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
         }
 
-        .info-text p {
+        .volunteer-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 237, 177, 0.4);
+        }
+
+        /* Gratitude Section */
+        .gratitude {
+            background: var(--bg-light);
+        }
+
+        .gratitude-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gratitude-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .gratitude-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .gratitude-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .gratitude-card p {
             color: var(--text-light);
-            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Blog Section */
+        .blog {
+            background: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+
+        .blog-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .blog-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .blog-date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
             font-weight: 500;
         }
 
-        .click-hint {
-            font-size: 0.75rem;
-            color: var(--accent-color);
-            margin-top: 0.3rem;
-            display: flex;
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            justify-content: center;
             align-items: center;
-            gap: 0.3rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .info-item:hover .click-hint {
-            opacity: 1;
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
         }
 
         /* Footer */
         footer {
             background: var(--primary-color);
             color: white;
-            padding: 2rem 1.5rem 1rem;
+            padding: 3rem 1.5rem 1rem;
         }
 
         .footer-content {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: var(--accent-color);
-            font-size: 1.2rem;
         }
 
         .footer-section p {
-            line-height: 1.6;
+            line-height: 1.8;
             opacity: 0.9;
-            font-size: 0.95rem;
         }
 
         .social-links {
             display: flex;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .social-link {
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
@@ -620,19 +688,19 @@
             transition: all 0.3s ease;
         }
 
-        .social-link:hover,
-        .social-link:focus {
-            background: var(--accent-color);
+        .social-link:hover {
+            background: var(--secondary-color);
             transform: translateY(-3px);
-            outline: none;
+        }
+        .footer-section p a:hover{
+            font-size: 1.2em;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             opacity: 0.8;
-            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -666,7 +734,7 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 60px;
+                top: 70px;
                 flex-direction: column;
                 background: white;
                 width: 100%;
@@ -686,12 +754,61 @@
             }
 
             .logo img {
-                height: 50px;
+                max-height: 60.3px;
             }
 
             .hero {
                 height: 70vh;
                 background-attachment: scroll;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button, .learn-more-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .goals-grid,
+            .vision-content,
+            .impact-grid,
+            .gratitude-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .vision-image {
+                height: 250px;
+            }
+
+            .partners-track {
+                animation-duration: 15s;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                max-height: 55.8px;
             }
 
             .hero h1 {
@@ -702,168 +819,17 @@
                 font-size: 0.9rem;
             }
 
-            .cta-button {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            section {
-                padding: 2rem 1rem;
-            }
-
             .section-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
-            .goals-grid,
-            .vision-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .partners-slide {
+                min-width: 150px;
             }
 
-            .vision-image {
-                height: 200px;
-            }
-
-            .vision-text h3 {
-                font-size: 1.4rem;
-            }
-
-            .vision-text p,
-            .goal-card p,
-            .info-text p,
-            .footer-section p {
-                font-size: 0.9rem;
-            }
-
-            .goal-card,
-            .contact-form,
-            .info-item {
-                padding: 1rem;
-            }
-
-            .contact-form h3 {
-                font-size: 1.3rem;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 0.6rem;
-                font-size: 0.9rem;
-            }
-
-            .submit-button {
-                padding: 0.7rem;
-                font-size: 0.9rem;
-            }
-
-            .info-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-
-            .info-text h4 {
-                font-size: 1rem;
-            }
-
-            .carousel {
-                width: 100%;
-                border-radius: 10px;
-            }
-
-            .carousel-slide {
-                height: 300px;
-            }
-
-            .slide-content {
-                padding: 1rem;
-            }
-
-            .slide-content h3 {
-                font-size: 1.4rem;
-            }
-
-            .slide-content p {
-                font-size: 0.85rem;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .footer-section h3 {
-                font-size: 1.1rem;
-            }
-
-            .social-link {
-                width: 30px;
-                height: 30px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 0.8rem 1rem;
-            }
-
-            .logo img {
-                height: 40px;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 0.8rem;
-            }
-
-            .cta-button {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.8rem;
-            }
-
-            .section-title {
-                font-size: 1.4rem;
-            }
-
-            .vision-text h3 {
-                font-size: 1.2rem;
-            }
-
-            .carousel-slide {
-                height: 250px;
-            }
-
-            .slide-content h3 {
-                font-size: 1.2rem;
-            }
-
-            .slide-content p {
-                font-size: 0.8rem;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 0.5rem;
-                font-size: 0.85rem;
-            }
-
-            .submit-button {
-                padding: 0.6rem;
-                font-size: 0.85rem;
-            }
-
-            .info-text h4 {
-                font-size: 0.9rem;
-            }
-
-            .info-text p {
-                font-size: 0.85rem;
+            .partners-slide img {
+                max-height: 60px;
+                max-width: 120px;
             }
         }
     </style>
@@ -873,14 +839,16 @@
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="logo" aria-label="BetterHer logo">
-                <img src="tobi.jpg" alt="BetterHer logo">
+                <img src="assets/copy2.png" alt="BetterHer logo">
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link" aria-label="Home section">Home</a></li>
-                <li><a href="#goals" class="nav-link" aria-label="Our Goals section">Our Goals</a></li>
-                <li><a href="#vision" class="nav-link" aria-label="Vision section">Vision</a></li>
-                <li><a href="#gallery" class="nav-link" aria-label="Gallery section">Gallery</a></li>
-                <li><a href="#contact" class="nav-link" aria-label="Contact section">Contact</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="impact.html" class="nav-link">Impact</a></li>
+                <li><a href="partners.html" class="nav-link">Partners</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger" aria-label="Toggle mobile menu">
                 <span></span>
@@ -891,11 +859,22 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero" role="banner">
+    <section class="hero">
         <div class="hero-content">
             <h1>BetterHer</h1>
-            <p>Advancing healthcare, advocacy, and empowerment for women across Nigeria and beyond</p>
-            <a href="#goals" class="cta-button" aria-label="Learn more about our goals">Learn More</a>
+            <p>Empowering women's health through innovative care, advocacy, and community engagement across Nigeria</p>
+            <a href="about.html" class="cta-button">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section Summary -->
+    <section class="about-summary">
+        <div class="container">
+            <h2 class="section-title">About BetterHer</h2>
+            <div class="section-summary">
+                <p>BetterHer is a non-profit organization dedicated to advancing women's health in Nigeria through innovative healthcare solutions, impactful advocacy, and community empowerment programs. We bridge gaps in women's healthcare access and promote equitable health policies.</p>
+            </div>
+            <a href="about.html" class="learn-more-btn">Learn More About Us</a>
         </div>
     </section>
 
@@ -903,190 +882,185 @@
     <section id="goals" class="goals">
         <div class="container">
             <h2 class="section-title">Our Goals</h2>
+            <div class="section-summary">
+                <p>Our mission is to transform women's health outcomes through targeted initiatives that address immediate needs and create lasting systemic change.</p>
+            </div>
             <div class="goals-grid">
                 <div class="goal-card">
                     <div class="goal-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3>Innovation & Leadership</h3>
-                    <p>To be at the forefront of women's health in Nigeria and beyond through innovative care, impactful advocacy and research, and lasting female empowerment.</p>
+                    <p>Lead innovative healthcare solutions and research to position women's health at the forefront of medical advancement in Nigeria.</p>
                 </div>
                 <div class="goal-card">
                     <div class="goal-icon">
                         <i class="fas fa-hand-holding-heart"></i>
                     </div>
                     <h3>Comprehensive Care</h3>
-                    <p>To bridge any existing gaps in delivering comprehensive, high-quality healthcare for women, focusing on practical steps and tailored solutions within local communities.</p>
+                    <p>Deliver accessible, high-quality healthcare services tailored to women's needs in underserved communities.</p>
                 </div>
                 <div class="goal-card">
                     <div class="goal-icon">
                         <i class="fas fa-globe-americas"></i>
                     </div>
                     <h3>Policy & Advocacy</h3>
-                    <p>To inform inclusive national and global policies that prioritise optimal living standards and equitable opportunities for women across diverse societies and cultures.</p>
+                    <p>Influence national and global policies to ensure equitable healthcare opportunities for women.</p>
                 </div>
             </div>
+            <a href="about.html" class="learn-more-btn">Explore Our Full Goals</a>
         </div>
     </section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="vision">
-        <div class="container">
-            <h2 class="section-title">Our Vision</h2>
-            <div class="vision-content">
-                <div class="vision-text">
-                    <h3>Building a Healthier Future</h3>
-                    <p>We envision a world where every woman has access to exceptional healthcare services, comprehensive health education, and the support needed to make informed decisions about their wellbeing.</p>
-                    <p>Through evidence-based practices, community engagement, and strategic partnerships, we are committed to creating lasting positive change in women's health outcomes.</p>
-                    <div class="vision-features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Evidence-based healthcare practices</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Community-centered approach</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Sustainable health solutions</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="vision-image">
-                    <img src="bet.jpg" alt="Healthcare Vision">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Carousel Section -->
-    <section id="gallery" class="carousel-section">
+    <!-- Impact Section Summary -->
+    <section class="impact-summary">
         <div class="container">
             <h2 class="section-title">Our Impact</h2>
-            <div class="carousel">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="be.jpeg" alt="Quality Healthcare">
-                        <div class="slide-content">
-                            <h3>Quality Healthcare</h3>
-                            <p>Providing accessible and comprehensive healthcare services</p>
-                        </div>
+            <div class="section-summary">
+                <p>Through community outreach, health education, and policy advocacy, BetterHer has touched thousands of lives and created measurable change in women's health outcomes.</p>
+            </div>
+            <a href="impact.html" class="learn-more-btn">See Our Impact Stories</a>
+        </div>
+    </section>
+
+    <!-- Partners Section Summary -->
+    <section class="partners-summary partners">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="section-summary">
+                <p>We collaborate with leading organizations to amplify our impact and create sustainable change in women's health.</p>
+            </div>
+            <div class="partners-carousel">
+                <div class="partners-track" id="partnersTrack">
+                    <div class="partners-slide"><img src="glea.png" alt="Glea Network"></div>
+                    <div class="partners-slide"><img src="promote-health.png" alt="Project Promote Health"></div>
+                    <div class="partners-slide"><img src="wandel.png" alt="Project WANDEL"></div>
+                    <div class="partners-slide"><img src="action-group.png" alt="Action Group on Adolescent Health"></div>
+                    <div class="partners-slide"><img src="Junior.png" alt="Junior Chamber International, University College Hospital"></div>
+                    <div class="partners-slide"><img src="glea.png" alt="Glea Network"></div>
+                    <div class="partners-slide"><img src="promote-health.png" alt="Project Promote Health"></div>
+                    <div class="partners-slide"><img src="wandel.png" alt="Project WANDEL"></div>
+                    <div class="partners-slide"><img src="action-group.png" alt="Action Group on Adolescent Health"></div>
+                    <div class="partners-slide"><img src="Junoir.png" alt="Junior Chamber International, University College Hospital"></div>
+                </div>
+            </div>
+            <a href="partners.html" class="learn-more-btn">Meet All Our Partners</a>
+        </div>
+    </section>
+
+    <!-- Blog Section Summary -->
+    <section class="blog">
+        <div class="container">
+            <h2 class="section-title">Our Blog</h2>
+            <div class="section-summary">
+                <p>Stay informed with our latest insights, stories, and updates on women's health advocacy and community impact.</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="assets/IMG_5124.webp" alt="Project Event" data-index="0">
+                    <div class="blog-card-content">
+                        <span class="blog-date">April 2024</span>
+                        <h3>Empowering Communities: Our Latest Outreach</h3>
+                        <p>Discover how our recent community health workshops are transforming lives in Ibadan.</p>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="bet.jpg" alt="Community Outreach">
-                        <div class="slide-content">
-                            <h3>Community Outreach</h3>
-                            <p>Engaging communities through education and support programs</p>
-                        </div>
+                </article>
+                <article class="blog-card">
+                    <img src="assets/IMG_1124.JPG" alt="Collaboration Event" data-index="1">
+                    <div class="blog-card-content">
+                        <span class="blog-date">May 2025</span>
+                        <h3>Partnering for Change</h3>
+                        <p>Our collaboration with leading health organizations is creating lasting impact.</p>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="bett.JPG" alt="Research & Innovation">
-                        <div class="slide-content">
-                            <h3>Research & Innovation</h3>
-                            <p>Advancing women's health through cutting-edge research</p>
-                        </div>
+                </article>
+                <article class="blog-card">
+                    <img src="assets/IMG_5103 (2).webp" alt="Health Advocacy" data-index="2">
+                    <div class="blog-card-content">
+                        <span class="blog-date">April 2024</span>
+                        <h3>Advocating for Women's Rights</h3>
+                        <p>How we're influencing policy to improve women's healthcare access.</p>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="be.jpeg" alt="Education & Empowerment">
-                        <div class="slide-content">
-                            <h3>Education & Empowerment</h3>
-                            <p>Empowering women through knowledge and skill development</p>
-                        </div>
-                    </div>
+                </article>
+            </div>
+            <a href="blog.html" class="learn-more-btn">Read More Stories</a>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section class="volunteer">
+        <div class="container">
+            <div class="volunteer-content">
+                <h2 class="section-title">Volunteer with Us</h2>
+                <p>Join our mission to transform women's health in Nigeria. Your time and passion can create real change.</p>
+                <p style="font-size: 1rem; opacity: 0.9; margin-bottom: 2rem;">*Currently limited to Ibadan, Nigeria, with more states to come later.</p>
+                <a href="https://forms.gle/example" class="volunteer-btn" target="_blank">Apply to Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gratitude Section -->
+    <section class="gratitude">
+        <div class="container">
+            <h2 class="section-title">Gratitude</h2>
+            <div class="section-summary">
+                <p>We are deeply thankful to everyone who has supported our mission through time, resources, and partnership.</p>
+            </div>
+            <div class="gratitude-grid">
+                <div class="gratitude-card">
+                    <img src="assets/pro 5.jpeg" alt="Volunteer Sarah">
+                    <h4>Sarah Adebayo</h4>
+                    <p>"Thank you for your incredible dedication to community outreach programs."</p>
+                </div>
+                <div class="gratitude-card">
+                    <img src="assets/ppro 4.jpeg" alt="Donor Michael">
+                    <h4>Michael Okafor</h4>
+                    <p>"Your generous support made our health workshops possible."</p>
+                </div>
+                <div class="gratitude-card">
+                    <img src="assets/pro 6.jpeg" alt="Partner Aisha">
+                    <h4>Aisha Ibrahim</h4>
+                    <p>"Grateful for your partnership in advocating for women's health rights."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <h3><i class="fas fa-paper-plane"></i> Send Us a Message</h3>
-                    <form id="contactForm" aria-label="Contact form">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="Enter your name" required aria-describedby="name-error">
-                            <span id="name-error" class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="your.email@example.com" required aria-describedby="email-error">
-                            <span id="email-error" class="error-message"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="Tell us how we can help you..." required aria-describedby="message-error"></textarea>
-                            <span id="message-error" class="error-message"></span>
-                        </div>
-                        <button type="submit" class="submit-button">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <a href="mailto:betterherfoundation@gmail.com" class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Email Us <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></h4>
-                            <p>betterherfoundation@gmail.com</p>
-                            <span class="click-hint"><i class="fas fa-mouse-pointer"></i> Click to send email</span>
-                        </div>
-                    </a>
-                    <a href="tel:+2349023594956" class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Call Us <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></h4>
-                            <p>+234 902 359 4956</p>
-                            <span class="click-hint"><i class="fas fa-mouse-pointer"></i> Click to call</span>
-                        </div>
-                    </a>
-                    <div class="info-item" style="cursor: default;">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-text">
-                            <h4>Visit Us</h4>
-                            <p>Lagos, Nigeria</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="Blog Image" class="lightbox-image">
+            <span class="lightbox-close">&times;</span>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>About Us</h3>
+                <h3>About BetterHer</h3>
                 <p>Dedicated to advancing women's health through innovative care, research, and advocacy across Nigeria and beyond.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61559628361049" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/betterherafrica/" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="http://x.com/betterherafrica" class="social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/betterherafrica/" class="social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="http://wa.me/9023594956" class="social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <p><a href="#home" style="color: white; text-decoration: none;">Home</a></p>
-                <p><a href="#goals" style="color: white; text-decoration: none;">Our Goals</a></p>
-                <p><a href="#vision" style="color: white; text-decoration: none;">Vision</a></p>
-                <p><a href="#contact" style="color: white; text-decoration: none;">Contact</a></p>
+                <p><a href="index.html" style="color: white; text-decoration: none;">Home</a></p>
+                <p><a href="about.html" style="color: white; text-decoration: none;">About</a></p>
+                <p><a href="impact.html" style="color: white; text-decoration: none;">Impact</a></p>
+                <p><a href="partners.html" style="color: white; text-decoration: none;">Partners</a></p>
+                <p><a href="blog.html" style="color: white; text-decoration: none;">Blog</a></p>
+                <p><a href="volunteer.html" style="color: white; text-decoration: none;">Volunteer</a></p>
+                <p><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></p>
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
-                <p><i class="fas fa-envelope"></i> betterherfoundation@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +234 902 359 4956</p>
-                <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:betterherfoundation@gmail.com" style="color: white; text-decoration: none;">betterherfoundation@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+2349023594956" style="color: white; text-decoration: none;">+234 902 359 4956</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Ibadan, Nigeria</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1111,19 +1085,6 @@
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Keyboard navigation for menu
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                }
             });
         });
 
@@ -1152,129 +1113,43 @@
         }, observerOptions);
 
         // Observe elements
-        document.querySelectorAll('.goal-card, .vision-text, .vision-image, .contact-form, .info-item').forEach(el => {
+        document.querySelectorAll('.goal-card, .vision-text, .vision-image, .impact-card, .gratitude-card, .blog-card').forEach(el => {
             observer.observe(el);
         });
 
-        // Carousel functionality with touch support
-        const track = document.querySelector('.carousel-track');
-        const slides = document.querySelectorAll('.carousel-slide');
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let isDragging = false;
-
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
-
-        function startAutoplay() {
-            autoplayInterval = setInterval(nextSlide, 4000);
-        }
-
-        function stopAutoplay() {
-            clearInterval(autoplayInterval);
-        }
-
-        function restartAutoplay() {
-            stopAutoplay();
-            startAutoplay();
-        }
-
-        // Touch events
-        const carousel = document.querySelector('.carousel');
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            isDragging = true;
-            stopAutoplay();
-        }, { passive: true });
-
-        carousel.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            touchEndX = e.touches[0].clientX;
-            const diffX = touchStartX - touchEndX;
-            const movePercent = (diffX / carousel.offsetWidth) * 100;
-            track.style.transform = `translateX(calc(-${currentSlide * 100}% + ${movePercent}px))`;
-        }, { passive: true });
-
-        carousel.addEventListener('touchend', () => {
-            if (!isDragging) return;
-            isDragging = false;
-            const diffX = touchStartX - touchEndX;
-            const swipeThreshold = carousel.offsetWidth * 0.2; // 20% of carousel width
-
-            if (diffX > swipeThreshold) {
-                nextSlide();
-            } else if (diffX < -swipeThreshold) {
-                prevSlide();
-            } else {
-                updateCarousel(); // Snap back if swipe is too small
+        // Partners carousel continuous scroll
+        const partnersTrack = document.getElementById('partnersTrack');
+        setInterval(() => {
+            if (partnersTrack) {
+                partnersTrack.style.transform = `translateX(-50%)`;
+                setTimeout(() => {
+                    partnersTrack.style.transform = `translateX(0)`;
+                }, 100);
             }
+        }, 20000);
 
-            restartAutoplay();
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.querySelector('.lightbox-image');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        document.querySelectorAll('.blog-card img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt;
+                lightbox.style.display = 'flex';
+            });
         });
 
-        // Mouse events for desktop
-        carousel.addEventListener('mouseenter', stopAutoplay);
-        carousel.addEventListener('mouseleave', startAutoplay);
-
-        // Prevent image drag
-        document.querySelectorAll('.carousel-slide img').forEach(img => {
-            img.addEventListener('dragstart', (e) => e.preventDefault());
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            lightboxImage.src = '';
         });
 
-        // Start autoplay on load
-        startAutoplay();
-
-        // Contact form validation
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            let isValid = true;
-
-            // Reset error messages
-            document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
-            document.querySelectorAll('.form-group').forEach(group => group.classList.remove('error'));
-
-            // Validate name
-            const name = document.getElementById('name').value.trim();
-            if (name.length < 2) {
-                document.getElementById('name-error').textContent = 'Name must be at least 2 characters';
-                document.getElementById('name').parentElement.classList.add('error');
-                isValid = false;
-            }
-
-            // Validate email
-            const email = document.getElementById('email').value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('email-error').textContent = 'Please enter a valid email';
-                document.getElementById('email').parentElement.classList.add('error');
-                isValid = false;
-            }
-
-            // Validate message
-            const message = document.getElementById('message').value.trim();
-            if (message.length < 10) {
-                document.getElementById('message-error').textContent = 'Message must be at least 10 characters';
-                document.getElementById('message').parentElement.classList.add('error');
-                isValid = false;
-            }
-
-            if (isValid) {
-                alert('Thank you for your message! We will get back to you soon.');
-                contactForm.reset();
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                lightboxImage.src = '';
             }
         });
     </script>
