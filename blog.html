@@ -6,7 +6,7 @@
     <title>BetterHer - Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=More+Sugar:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-       <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon.ico"> 
@@ -71,7 +71,7 @@
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
 .blog-card { background: var(--bg-light); border-radius: 15px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
 .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-.blog-card img { width: 100%; height: 200px; object-fit: cover; }
+.blog-card img { width: 100%; height: 200px; object-fit: cover; cursor: pointer; }
 .blog-card-content { padding: 1.5rem; }
 .blog-card h3 { color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.3rem; }
 .blog-card p { color: var(--text-light); margin-bottom: 1rem; }
@@ -135,7 +135,53 @@
     border-top: 1px solid rgba(255,255,255,0.1);
     opacity: 0.8;
     color: white;
-} 
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
     </style>
 </head>
 <body>
@@ -171,7 +217,7 @@
             <h2 class="section-title">Latest Updates</h2>
             <div class="blog-grid">
                 <article class="blog-card">
-                    <img src="assets/IMG_5124.webp" alt="Project Event">
+                    <img src="assets/IMG_5124.webp" alt="Project Event" onclick="openLightbox('assets/IMG_5124.webp')">
                     <div class="blog-card-content">
                         <span class="blog-date">April 2024</span>
                         <h3>Empowering Communities: Our Latest Outreach</h3>
@@ -179,7 +225,7 @@
                     </div>
                 </article>
                 <article class="blog-card">
-                    <img src="assets/IMG_1124.JPG" alt="Collaboration Event">
+                    <img src="assets/IMG_1124.JPG" alt="Collaboration Event" onclick="openLightbox('assets/IMG_1124.JPG')">
                     <div class="blog-card-content">
                         <span class="blog-date">September 2025</span>
                         <h3>Partnering for Change</h3>
@@ -187,7 +233,7 @@
                     </div>
                 </article>
                 <article class="blog-card">
-                    <img src="assets/IMG_5103 (2).webp" alt="Health Advocacy">
+                    <img src="assets/IMG_5103 (2).webp" alt="Health Advocacy" onclick="openLightbox('assets/IMG_5103 (2).webp')">
                     <div class="blog-card-content">
                         <span class="blog-date">April 2024</span>
                         <h3>Advocating for Women's Rights</h3>
@@ -254,6 +300,35 @@
             if (window.scrollY > 100) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
+
+        // Lightbox Functions
+        function openLightbox(imageSrc) {
+            const lightbox = document.createElement('div');
+            lightbox.className = 'lightbox';
+            const lightboxContent = document.createElement('div');
+            lightboxContent.className = 'lightbox-content';
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            const closeBtn = document.createElement('span');
+            closeBtn.className = 'lightbox-close';
+            closeBtn.innerHTML = '&times;';
+            lightboxContent.appendChild(img);
+            lightboxContent.appendChild(closeBtn);
+            lightbox.appendChild(lightboxContent);
+            document.body.appendChild(lightbox);
+
+            lightbox.style.display = 'flex';
+            closeBtn.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+                document.body.removeChild(lightbox);
+            });
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = 'none';
+                    document.body.removeChild(lightbox);
+                }
+            });
+        }
     </script>
 </body>
 </html>
