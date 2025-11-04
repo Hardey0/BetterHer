@@ -39,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -140,7 +139,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* Hero Section */
         .hero {
             height: 80vh;
             background: linear-gradient(rgba(1, 73, 172, 0.7), rgba(252, 25, 99, 0.7)), 
@@ -197,7 +195,6 @@
             outline: none;
         }
 
-        /* Section Styles */
         section {
             padding: 4rem 1.5rem;
         }
@@ -257,7 +254,6 @@
             box-shadow: 0 6px 20px rgba(1, 73, 172, 0.3);
         }
 
-        /* Goals Section */
         .goals {
             background: var(--bg-light);
         }
@@ -314,120 +310,6 @@
             line-height: 1.8;
         }
 
-        /* Vision Section */
-        .vision-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .vision-text {
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-
-        .vision-text.animate {
-            animation: fadeInLeft 0.8s ease forwards;
-        }
-
-        .vision-text h3 {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .vision-text p {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .vision-features {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .feature-item i {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-        }
-
-        .vision-image {
-            height: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            opacity: 0;
-            transform: translateX(30px);
-        }
-
-        .vision-image.animate {
-            animation: fadeInRight 0.8s ease forwards;
-        }
-
-        .vision-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Impact Section */
-        .impact {
-            background: var(--bg-light);
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .impact-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .impact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .impact-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-
-        .impact-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
-
-        .impact-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Partners Carousel */
         .partners {
             background: white;
         }
@@ -445,24 +327,23 @@
         }
 
         .partners-slide {
-            min-width: 200px;
+            min-width: 250px;
             padding: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
         }
 
         .partners-slide img {
-            max-height: 80px;
-            max-width: 150px;
+            max-height: 120px;
+            max-width: 200px;
             object-fit: contain;
-            filter: grayscale(100%);
             transition: all 0.3s ease;
         }
 
         .partners-slide:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
 
         @keyframes scroll {
@@ -470,7 +351,6 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Volunteer Section */
         .volunteer {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -511,7 +391,6 @@
             box-shadow: 0 8px 25px rgba(245, 237, 177, 0.4);
         }
 
-        /* Gratitude Section */
         .gratitude {
             background: var(--bg-light);
         }
@@ -548,7 +427,6 @@
             font-style: italic;
         }
 
-        /* Blog Section */
         .blog {
             background: white;
         }
@@ -600,7 +478,6 @@
             font-weight: 500;
         }
 
-        /* Lightbox Styles */
         .lightbox {
             display: none;
             position: fixed;
@@ -649,7 +526,6 @@
             transform: scale(1.1);
         }
 
-        /* Footer */
         footer {
             background: var(--primary-color);
             color: white;
@@ -698,6 +574,7 @@
             background: var(--secondary-color);
             transform: translateY(-3px);
         }
+
         .footer-section p a:hover{
             font-size: 1.2em;
         }
@@ -709,7 +586,6 @@
             opacity: 0.8;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -717,21 +593,6 @@
             }
         }
 
-        @keyframes fadeInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex !important;
@@ -790,16 +651,10 @@
             }
 
             .goals-grid,
-            .vision-content,
-            .impact-grid,
             .gratitude-grid,
             .blog-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
-            }
-
-            .vision-image {
-                height: 250px;
             }
 
             .partners-track {
@@ -830,18 +685,17 @@
             }
 
             .partners-slide {
-                min-width: 150px;
+                min-width: 200px;
             }
 
             .partners-slide img {
-                max-height: 60px;
-                max-width: 120px;
+                max-height: 90px;
+                max-width: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="logo" aria-label="BetterHer logo">
@@ -863,7 +717,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>BetterHer</h1>
@@ -872,7 +725,6 @@
         </div>
     </section>
 
-    <!-- About Section Summary -->
     <section class="about-summary">
         <div class="container">
             <h2 class="section-title">About BetterHer</h2>
@@ -883,7 +735,6 @@
         </div>
     </section>
 
-    <!-- Goals Section -->
     <section id="goals" class="goals">
         <div class="container">
             <h2 class="section-title">Our Goals</h2>
@@ -917,7 +768,6 @@
         </div>
     </section>
 
-    <!-- Impact Section Summary -->
     <section class="impact-summary">
         <div class="container">
             <h2 class="section-title">Our Impact</h2>
@@ -928,7 +778,6 @@
         </div>
     </section>
 
-    <!-- Partners Section Summary -->
     <section class="partners-summary partners">
         <div class="container">
             <h2 class="section-title">Our Partners</h2>
@@ -937,23 +786,21 @@
             </div>
             <div class="partners-carousel">
                 <div class="partners-track" id="partnersTrack">
-                    <div class="partners-slide"><img src="glea.png" alt="Glea Network"></div>
-                    <div class="partners-slide"><img src="promote-health.png" alt="Project Promote Health"></div>
-                    <div class="partners-slide"><img src="wandel.png" alt="Project WANDEL"></div>
-                    <div class="partners-slide"><img src="action-group.png" alt="Action Group on Adolescent Health"></div>
-                    <div class="partners-slide"><img src="Junior.png" alt="Junior Chamber International, University College Hospital"></div>
-                    <div class="partners-slide"><img src="glea.png" alt="Glea Network"></div>
-                    <div class="partners-slide"><img src="promote-health.png" alt="Project Promote Health"></div>
-                    <div class="partners-slide"><img src="wandel.png" alt="Project WANDEL"></div>
-                    <div class="partners-slide"><img src="action-group.png" alt="Action Group on Adolescent Health"></div>
-                    <div class="partners-slide"><img src="Junoir.png" alt="Junior Chamber International, University College Hospital"></div>
+                    <a href="https://thegleanetwork.org/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/The Glea Network.png" alt="Glea Network"></a>
+                    <a href="https://www.linkedin.com/in/project-promote-health-38719735b" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project Promote Health 1.png" alt="Project Promote Health"></a>
+                    <a href="https://www.instagram.com/project_wandel/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project WANDEL.png" alt="Project WANDEL"></a>
+                    <a href="https://www.instagram.com/agah_ibadan/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/AGAH Logo PNG.png" alt="Action Group on Adolescent Health"></a>
+                    <a href="https://www.instagram.com/uchjaycees/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Junior Chamber International, UCH.png" alt="Junior Chamber International, University College Hospital"></a>
+                    <a href="https://thegleanetwork.org/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/The Glea Network.png" alt="Glea Network"></a>
+                    <a href="https://www.linkedin.com/in/project-promote-health-38719735b" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project Promote Health 1.png" alt="Project Promote Health"></a>
+                    <a href="https://www.instagram.com/project_wandel/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project WANDEL.png" alt="Project WANDEL"></a>
+                    <a href="https://www.instagram.com/agah_ibadan/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/AGAH Logo PNG.png" alt="Action Group on Adolescent Health"></a>
+                    <a href="https://www.instagram.com/uchjaycees/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Junior Chamber International, UCH.png" alt="Junior Chamber International, University College Hospital"></a>
                 </div>
             </div>
-           
         </div>
     </section>
 
-    <!-- Blog Section Summary -->
     <section class="blog">
         <div class="container">
             <h2 class="section-title">Our Blog</h2>
@@ -990,7 +837,6 @@
         </div>
     </section>
 
-    <!-- Volunteer Section -->
     <section class="volunteer">
         <div class="container">
             <div class="volunteer-content">
@@ -1002,7 +848,6 @@
         </div>
     </section>
 
-    <!-- Gratitude Section -->
     <section class="gratitude">
         <div class="container">
             <h2 class="section-title">Gratitude</h2>

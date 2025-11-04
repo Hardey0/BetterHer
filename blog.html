@@ -11,185 +11,111 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon.ico"> 
     <style>
-        /* Reusing styles from index.html */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --primary-color: #0149ac; --secondary-color: #fc1963; --accent-color: #f5edb1; --text-dark: #2d3748; --text-light: #718096; --bg-light: #f8f9fa; --white: #ffffff; }
         body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--text-dark); overflow-x: hidden; }
-              /* Existing navbar styles */
-.navbar { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
-.navbar.scrolled { background: rgba(255, 255, 255, 1); box-shadow: 0 2px 30px rgba(0,0,0,0.15); }
-.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
-.logo img { max-height: 90px; width: auto; object-fit: contain; }
-.nav-menu { display: flex; list-style: none; gap: 1.5rem; }
-.nav-link { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease; padding: 0.5rem; }
-.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.3s ease; }
-.nav-link:hover::after, .nav-link:focus::after { width: 100%; }
-.nav-link:hover, .nav-link:focus { color: var(--primary-color); outline: none; }
-.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 0.5rem; }
-.hamburger span { width: 30px; height: 4px; background: var(--primary-color); transition: all 0.3s ease; border-radius: 2px; }
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-}
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
+        
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
+        .navbar.scrolled { background: rgba(255, 255, 255, 1); box-shadow: 0 2px 30px rgba(0,0,0,0.15); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+        .logo img { max-height: 90px; width: auto; object-fit: contain; }
+        .nav-menu { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-link { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease; padding: 0.5rem; position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link:focus::after { width: 100%; }
+        .nav-link:hover, .nav-link:focus { color: var(--primary-color); outline: none; }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 0.5rem; }
+        .hamburger span { width: 30px; height: 4px; background: var(--primary-color); transition: all 0.3s ease; border-radius: 2px; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-/* Media query for mobile */
-@media (max-width: 768px) {
-    .hamburger { display: flex; } /* Show hamburger on mobile */
-    .nav-menu { 
-        position: fixed; 
-        left: -100%; 
-        top: 70px; 
-        flex-direction: column; 
-        background: white; 
-        width: 100%; 
-        text-align: center; 
-        transition: left 0.3s ease; 
-        box-shadow: 0 8px 20px rgba(0,0,0,0.05); 
-        padding: 1.5rem 0; 
-    }
-    .nav-menu.active { left: 0; } /* Slide in menu when active */
-    .nav-link { padding: 0.8rem; font-size: 1.1rem; }
-    .logo img { max-height: 60px; }
-    .hero { height: 50vh; } .hero h1 { font-size: 2rem; } .hero p { font-size: 1rem; } .section-title { font-size: 2.2rem; }
-}
+        .hero { height: 60vh; background: linear-gradient(rgba(1, 73, 172, 0.7), rgba(252, 25, 99, 0.7)), url('assets/bett.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero h1 { font-family: 'More Sugar', cursive; font-size: 3rem; color: var(--accent-color); }
+        .hero p { font-size: 1.2rem; padding-bottom: 0.6em; }
+        .cta-button { padding: 0.8rem 2rem; background: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4); display: inline-block; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(252, 25, 99, 0.6); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
+        .section-title { font-size: 2.8rem; font-weight: bold; color: var(--primary-color); text-align: center; margin-bottom: 1rem; position: relative; padding-bottom: 1rem; letter-spacing: 1px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--secondary-color); border-radius: 2px; }
+        .section-subtitle { text-align: center; color: var(--text-light); font-size: 1.1rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        .featured-post { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 30px rgba(0,0,0,0.15); margin-bottom: 4rem; display: grid; grid-template-columns: 1fr 1fr; transition: all 0.3s ease; }
+        .featured-post:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        .featured-post img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+        .featured-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+        .featured-badge { display: inline-block; background: var(--secondary-color); color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .featured-content h2 { color: var(--primary-color); font-size: 2rem; margin-bottom: 1rem; }
+        .featured-content .blog-date { color: var(--secondary-color); font-size: 0.95rem; font-weight: 500; margin-bottom: 1rem; display: block; }
+        .featured-content p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .read-more-btn { display: inline-block; padding: 0.7rem 1.8rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; }
+        .read-more-btn:hover { background: var(--secondary-color); transform: translateX(5px); }
+        
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .blog-card { background: white; border-radius: 15px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.18); }
+        .blog-card img { width: 100%; height: 220px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease; }
+        .blog-card:hover img { transform: scale(1.05); }
+        .blog-card-content { padding: 1.8rem; }
+        .blog-category { display: inline-block; background: var(--accent-color); color: var(--primary-color); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.8rem; }
+        .blog-card h3 { color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.4rem; line-height: 1.4; }
+        .blog-card p { color: var(--text-light); margin-bottom: 1.2rem; line-height: 1.7; }
+        .blog-date { color: var(--secondary-color); font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
+        .blog-date i { font-size: 0.85rem; }
+        
+        .categories-section { background: var(--bg-light); padding: 3rem 0; margin-top: 4rem; }
+        .categories-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem; }
+        .category-tag { background: white; padding: 0.8rem 1.5rem; border-radius: 25px; color: var(--primary-color); font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .category-tag:hover { background: var(--primary-color); color: white; transform: translateY(-3px); box-shadow: 0 4px 15px rgba(1, 73, 172, 0.3); }
+        
+        footer { background: var(--primary-color); color: white; padding: 3rem 1.5rem 1rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h3 { margin-bottom: 1rem; color: var(--accent-color); }
+        .footer-section p { line-height: 1.8; opacity: 0.9; }
+        .footer-section p a:hover { font-size: 1.2em; }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-link { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: var(--secondary-color); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.8; }
 
-@media (max-width: 480px) { .hero{height: 30vh;} .hero h1 { font-size: 1.6rem; } .hero p { font-size: 0.9rem; } .section-title { font-size: 1.8rem; }  .logo img { max-height: 50px; }}
+        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 2000; justify-content: center; align-items: center; }
+        .lightbox-content { max-width: 90%; max-height: 90vh; position: relative; }
+        .lightbox-content img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 10px; }
+        .lightbox-close { position: absolute; top: 20px; right: 20px; color: white; font-size: 2.5rem; cursor: pointer; background: rgba(255, 255, 255, 0.2); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .lightbox-close:hover { background: rgba(255, 255, 255, 0.4); transform: rotate(90deg); }
 
-.hero { height: 60vh; background: linear-gradient(rgba(1, 73, 172, 0.7), rgba(252, 25, 99, 0.7)), url('assets/bett.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
-.hero h1 { font-family: 'More Sugar', cursive; font-size: 3rem; color: var(--accent-color); }
-.hero p { font-size: 1.2rem;padding-bottom: 0.6em; }
-.cta-button { padding: 0.8rem 2rem; background: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4); }
-.cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(252, 25, 99, 0.6); }
-.container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
-.section-title { font-size: 2.8rem; font-weight: bold; color: var(--primary-color); text-align: center; margin-bottom: 2.5rem; position: relative; padding-bottom: 1rem; letter-spacing: 1px; }
-.section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--secondary-color); border-radius: 2px; }
-.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-.blog-card { background: var(--bg-light); border-radius: 15px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-.blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-.blog-card img { width: 100%; height: 200px; object-fit: cover; cursor: pointer; }
-.blog-card-content { padding: 1.5rem; }
-.blog-card h3 { color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.3rem; }
-.blog-card p { color: var(--text-light); margin-bottom: 1rem; }
-.blog-date { color: var(--secondary-color); font-size: 0.9rem; font-weight: 500; }
-.footer {
-    background: var(--primary-color);
-    color: white;
-    padding: 3rem 1.5rem 1rem;
-}
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background: white; width: 100%; text-align: center; transition: left 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); padding: 1.5rem 0; }
+            .nav-menu.active { left: 0; }
+            .nav-link { padding: 0.8rem; font-size: 1.1rem; }
+            .logo img { max-height: 60px; }
+            .hero { height: 50vh; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 2.2rem; }
+            .featured-post { grid-template-columns: 1fr; }
+            .featured-content { padding: 2rem; }
+            .featured-content h2 { font-size: 1.6rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-.footer-section p {
-    line-height: 1.8;
-    opacity: 0.9;
-    color: white;
-}
-.footer-section p a:hover{
-    font-size: 1.2em;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.social-link {
-    width: 45px;
-    height: 45px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    opacity: 0.8;
-    color: white;
-}
-
-/* Lightbox Styles */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-content {
-    max-width: 90%;
-    max-height: 90vh;
-    position: relative;
-}
-
-.lightbox-content img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-close:hover {
-    background: rgba(255, 255, 255, 0.4);
-}
+        @media (max-width: 480px) {
+            .hero { height: 40vh; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 0.9rem; }
+            .section-title { font-size: 1.8rem; }
+            .logo img { max-height: 50px; }
+            .featured-content { padding: 1.5rem; }
+            .featured-content h2 { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
-<a href="index.html">            <div class="logo"><img src="assets/copy2.png" alt="BetterHer logo"></div>
-</a>
+            <a href="index.html"><div class="logo"><img src="assets/copy2.png" alt="BetterHer logo"></div></a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
@@ -202,133 +128,229 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Our Blog</h1>
-            <p>Insights and stories from the field</p>
-            <a href="#blog" class="cta-button">Read More</a>
+            <p>Stories, insights, and updates from the field of women's health</p>
+            <a href="#blog" class="cta-button">Explore Articles</a>
         </div>
     </section>
 
-    <!-- Blog Content -->
-    <section class="blog-content">
+    <section class="blog-content" id="blog">
         <div class="container">
-            <h2 class="section-title">Latest Updates</h2>
+            <h2 class="section-title">Featured Story</h2>
+            <p class="section-subtitle">Dive deep into our most impactful initiatives and community transformations</p>
+            
+            <div class="featured-post">
+                <img src="assets/IMG_5124.webp" alt="Community Health Workshop" onclick="openLightbox('assets/IMG_5124.webp')">
+                <div class="featured-content">
+                    <span class="featured-badge">Featured</span>
+                    <h2>Empowering Communities Through Health Education</h2>
+                    <span class="blog-date"><i class="far fa-calendar-alt"></i> April 15, 2024</span>
+                    <p>Our recent health education workshops in Ibadan have reached over 500 women, providing essential knowledge about reproductive health, menstrual hygiene, and preventive care. Through interactive sessions and hands-on demonstrations, we're breaking down barriers and empowering women to take charge of their health journey.</p>
+                    <a href="#" class="read-more-btn">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 3rem;">Latest Updates</h2>
+            <p class="section-subtitle">Stay informed with our recent activities and health advocacy initiatives</p>
+            
             <div class="blog-grid">
                 <article class="blog-card">
-                    <img src="assets/IMG_5124.webp" alt="Project Event" onclick="openLightbox('assets/IMG_5124.webp')">
+                    <img src="assets/IMG_1124.JPG" alt="Partnership Event" onclick="openLightbox('assets/IMG_1124.JPG')">
                     <div class="blog-card-content">
-                        <span class="blog-date">April 2024</span>
-                        <h3>Empowering Communities: Our Latest Outreach</h3>
-                        <p>Learn how our recent health workshops in Ibadan are making a difference.</p>
+                        <span class="blog-category">Collaboration</span>
+                        <h3>Building Bridges: Our Partnership Success</h3>
+                        <p>Celebrating successful collaborations with leading health organizations to expand our reach and impact across Nigeria.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> September 28, 2024</span>
                     </div>
                 </article>
+
                 <article class="blog-card">
-                    <img src="assets/IMG_1124.JPG" alt="Collaboration Event" onclick="openLightbox('assets/IMG_1124.JPG')">
+                    <img src="assets/IMG_5103 (2).webp" alt="Policy Advocacy" onclick="openLightbox('assets/IMG_5103 (2).webp')">
                     <div class="blog-card-content">
-                        <span class="blog-date">September 2025</span>
-                        <h3>Partnering for Change</h3>
-                        <p>Highlights from our collaboration events with health organizations.</p>
+                        <span class="blog-category">Advocacy</span>
+                        <h3>Championing Women's Health Rights</h3>
+                        <p>How our advocacy efforts are influencing policy changes to improve healthcare access for women across Nigeria.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> April 8, 2024</span>
                     </div>
                 </article>
+
                 <article class="blog-card">
-                    <img src="assets/IMG_5103 (2).webp" alt="Health Advocacy" onclick="openLightbox('assets/IMG_5103 (2).webp')">
+                    <img src="assets/IMG_7598.webp" alt="Menstrual Hygiene Workshop" onclick="openLightbox('assets/IMG_7598.webp')">
                     <div class="blog-card-content">
-                        <span class="blog-date">April 2024</span>
-                        <h3>Advocating for Women's Rights</h3>
-                        <p>Our efforts to influence health policy for women in Nigeria.</p>
+                        <span class="blog-category">Education</span>
+                        <h3>Breaking Taboos: Menstrual Hygiene Awareness</h3>
+                        <p>Our comprehensive menstrual hygiene program is educating young girls and women about healthy practices and breaking cultural stigmas.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> March 22, 2024</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="assets/IMG_9154.webp" alt="Family Planning" onclick="openLightbox('assets/IMG_9154.webp')">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Reproductive Health</span>
+                        <h3>Family Planning: Empowering Choices</h3>
+                        <p>Providing comprehensive information about contraceptive options and reproductive health planning for informed decision-making.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> February 14, 2024</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="assets/IMG_8430.webp" alt="Cancer Screening" onclick="openLightbox('assets/IMG_8430.webp')">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Prevention</span>
+                        <h3>Cervical Cancer: Early Detection Saves Lives</h3>
+                        <p>Our cervical cancer screening and awareness campaign is helping women understand the importance of regular health check-ups.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> January 30, 2024</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="assets/IMG_5154.webp" alt="Orphanage Outreach" onclick="openLightbox('assets/IMG_5154.webp')">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Community Service</span>
+                        <h3>Caring for the Vulnerable: Orphanage Outreach</h3>
+                        <p>Bringing healthcare, education, and hope to orphaned children through our dedicated outreach programs.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> December 12, 2023</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="assets/IMG_6797 copy.jpg" alt="World Health Day" onclick="openLightbox('assets/IMG_6797 copy.jpg')">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Events</span>
+                        <h3>World Health Day: Community Celebration</h3>
+                        <p>Marking World Health Day with free health screenings, educational workshops, and community engagement activities.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> April 7, 2024</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="assets/IMG-20250418-WA0280.jpg" alt="Project WANDEL" onclick="openLightbox('assets/IMG-20250418-WA0280.jpg')">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Partnership</span>
+                        <h3>Project WANDEL: Collaborative Health Initiatives</h3>
+                        <p>Join us as we partner with Project WANDEL to deliver comprehensive health services to underserved communities.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> October 10, 2024</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <img src="assets/IMG_8622.JPG" alt="Glea Network" onclick="openLightbox('assets/IMG_8622.JPG')">
+                    <div class="blog-card-content">
+                        <span class="blog-category">Networking</span>
+                        <h3>Glea Network: Strengthening Healthcare Systems</h3>
+                        <p>Working with the Glea Network to build stronger, more resilient healthcare systems for women across Nigeria.</p>
+                        <span class="blog-date"><i class="far fa-calendar-alt"></i> November 18, 2024</span>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-<footer style="background: #0149ac;">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>About BetterHer</h3>
-            <p>Dedicated to advancing women's health through innovative care, research, and advocacy across Nigeria and beyond.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61559628361049" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/betterherafrica/" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="http://x.com/betterherafrica" class="social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/company/betterherafrica/" class="social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="http://wa.me/9023594956" class="social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Explore by Category</h2>
+            <div class="categories-grid">
+                <a href="#" class="category-tag"><i class="fas fa-hands-helping"></i> Collaboration</a>
+                <a href="#" class="category-tag"><i class="fas fa-bullhorn"></i> Advocacy</a>
+                <a href="#" class="category-tag"><i class="fas fa-graduation-cap"></i> Education</a>
+                <a href="#" class="category-tag"><i class="fas fa-heartbeat"></i> Reproductive Health</a>
+                <a href="#" class="category-tag"><i class="fas fa-shield-alt"></i> Prevention</a>
+                <a href="#" class="category-tag"><i class="fas fa-users"></i> Community Service</a>
+                <a href="#" class="category-tag"><i class="fas fa-calendar-check"></i> Events</a>
+                <a href="#" class="category-tag"><i class="fas fa-network-wired"></i> Partnership</a>
             </div>
         </div>
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <p><a href="index.html" style="color: white; text-decoration: none;">Home</a></p>
-            <p><a href="about.html" style="color: white; text-decoration: none;">About</a></p>
-            <p><a href="impact.html" style="color: white; text-decoration: none;">Impact</a></p>
-            <p><a href="partners.html" style="color: white; text-decoration: none;">Partners</a></p>
-            <p><a href="blog.html" style="color: white; text-decoration: none;">Blog</a></p>
-            <p><a href="volunteer.html" style="color: white; text-decoration: none;">Volunteer</a></p>
-            <p><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></p>
-        </div>
-        <div class="footer-section">
-            <h3>Contact Info</h3>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:betterherfoundation@gmail.com" style="color: white; text-decoration: none;">betterherfoundation@gmail.com</a></p>
-           <p><i class="fas fa-phone"></i> <a href="tel:+2349023594956" style="color: white; text-decoration: none;">+234 902 359 4956</a></p>
-            <p><i class="fas fa-map-marker-alt"></i> Ibadan, Nigeria</p>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="Blog image">
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 BetterHer. All rights reserved.</p>
-    </div>
-</footer>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BetterHer</h3>
+                <p>Dedicated to advancing women's health through innovative care, research, and advocacy across Nigeria and beyond.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61559628361049" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/betterherafrica/" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="http://x.com/betterherafrica" class="social-link" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/betterherafrica/" class="social-link" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="http://wa.me/9023594956" class="social-link" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html" style="color: white; text-decoration: none;">Home</a></p>
+                <p><a href="about.html" style="color: white; text-decoration: none;">About</a></p>
+                <p><a href="impact.html" style="color: white; text-decoration: none;">Impact</a></p>
+                <p><a href="partners.html" style="color: white; text-decoration: none;">Partners</a></p>
+                <p><a href="blog.html" style="color: white; text-decoration: none;">Blog</a></p>
+                <p><a href="volunteer.html" style="color: white; text-decoration: none;">Volunteer</a></p>
+                <p><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:betterherfoundation@gmail.com" style="color: white; text-decoration: none;">betterherfoundation@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+2349023594956" style="color: white; text-decoration: none;">+234 902 359 4956</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Ibadan, Nigeria</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BetterHer. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
+        
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
         });
+        
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
+        
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
 
-        // Lightbox Functions
         function openLightbox(imageSrc) {
-            const lightbox = document.createElement('div');
-            lightbox.className = 'lightbox';
-            const lightboxContent = document.createElement('div');
-            lightboxContent.className = 'lightbox-content';
-            const img = document.createElement('img');
-            img.src = imageSrc;
-            const closeBtn = document.createElement('span');
-            closeBtn.className = 'lightbox-close';
-            closeBtn.innerHTML = '&times;';
-            lightboxContent.appendChild(img);
-            lightboxContent.appendChild(closeBtn);
-            lightbox.appendChild(lightboxContent);
-            document.body.appendChild(lightbox);
-
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
             lightbox.style.display = 'flex';
-            closeBtn.addEventListener('click', () => {
-                lightbox.style.display = 'none';
-                document.body.removeChild(lightbox);
-            });
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    lightbox.style.display = 'none';
-                    document.body.removeChild(lightbox);
-                }
-            });
         }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>
