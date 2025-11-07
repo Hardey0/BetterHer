@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BetterHer - Blog</title>
+    <title>Menstrual Hygiene - BetterHer Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=More+Sugar:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
@@ -41,34 +41,30 @@
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--secondary-color); border-radius: 2px; }
         .section-subtitle { text-align: center; color: var(--text-light); font-size: 1.1rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
         
-        .featured-post { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 30px rgba(0,0,0,0.15); margin-bottom: 4rem; display: grid; grid-template-columns: 1fr 1fr; transition: all 0.3s ease; }
-        .featured-post:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
-        .featured-post img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
-        .featured-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-        .featured-badge { display: inline-block; background: var(--secondary-color); color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
-        .featured-content h2 { color: var(--primary-color); font-size: 2rem; margin-bottom: 1rem; }
-        .featured-content .blog-date { color: var(--secondary-color); font-size: 0.95rem; font-weight: 500; margin-bottom: 1rem; display: block; }
-        .featured-content p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
-        .read-more-btn { display: inline-block; padding: 0.7rem 1.8rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; }
-        .read-more-btn:hover { background: var(--secondary-color); transform: translateX(5px); }
+        .article-content { background: white; border-radius: 15px; padding: 3rem; box-shadow: 0 5px 30px rgba(0,0,0,0.15); margin-bottom: 4rem; }
+        .article-header { text-align: center; margin-bottom: 2.5rem; }
+        .article-badge { display: inline-block; background: var(--secondary-color); color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .article-title { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 1rem; }
+        .article-meta { color: var(--secondary-color); font-size: 0.95rem; font-weight: 500; display: block; margin-bottom: 1.5rem; }
+        .article-body { line-height: 1.8; color: var(--text-dark); }
+        .article-body h2 { color: var(--primary-color); font-size: 1.8rem; margin: 2rem 0 1rem; position: relative; padding-bottom: 0.5rem; }
+        .article-body h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--secondary-color); }
+        .article-body h3 { color: var(--primary-color); font-size: 1.5rem; margin: 1.5rem 0 0.8rem; }
+        .article-body p { margin-bottom: 1.2rem; }
+        .article-body ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.2rem; }
+        .article-body ul li { margin-bottom: 0.5rem; }
+        .scenario { background: var(--bg-light); padding: 1.5rem; border-left: 5px solid var(--secondary-color); margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .scenario strong { color: var(--primary-color); }
+        .back-btn { display: inline-block; padding: 0.7rem 1.8rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; margin-top: 2rem; }
+        .back-btn:hover { background: var(--secondary-color); transform: translateX(5px); }
         
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .blog-card { background: white; border-radius: 15px; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.18); }
-        .blog-card img { width: 100%; height: 220px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease; }
-        .blog-card:hover img { transform: scale(1.05); }
-        .blog-card-content { padding: 1.8rem; }
-        .blog-category { display: inline-block; background: var(--accent-color); color: var(--primary-color); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.8rem; }
-        .blog-card h3 { color: var(--primary-color); margin-bottom: 0.8rem; font-size: 1.4rem; line-height: 1.4; }
-        .blog-card p { color: var(--text-light); margin-bottom: 1.2rem; line-height: 1.7; }
-        .blog-date { color: var(--secondary-color); font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
-        .blog-date i { font-size: 0.85rem; }
-        
-        .categories-section { background: var(--bg-light); padding: 3rem 0; margin-top: 4rem; }
-        .categories-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem; }
-        .category-tag { background: white; padding: 0.8rem 1.5rem; border-radius: 25px; color: var(--primary-color); font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .category-tag:hover { background: var(--primary-color); color: white; transform: translateY(-3px); box-shadow: 0 4px 15px rgba(1, 73, 172, 0.3); }
-        
+        .references { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--text-light); }
+        .references h3 { color: var(--primary-color); margin-bottom: 1rem; }
+        .references ul { list-style: none; padding-left: 0; }
+        .references li { margin-bottom: 0.8rem; }
+        .references a { color: var(--primary-color); text-decoration: none; }
+        .references a:hover { text-decoration: underline; }
+
         footer { background: var(--primary-color); color: white; padding: 3rem 1.5rem 1rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
         .footer-section h3 { margin-bottom: 1rem; color: var(--accent-color); }
@@ -79,20 +75,8 @@
         .social-link:hover { background: var(--secondary-color); transform: translateY(-3px); }
         .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.8; }
 
-        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 2000; justify-content: center; align-items: center; }
-        .lightbox-content { max-width: 90%; max-height: 90vh; position: relative; }
-        .lightbox-content img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 10px; }
-        .lightbox-close { position: absolute; top: 20px; right: 20px; color: white; font-size: 2.5rem; cursor: pointer; background: rgba(255, 255, 255, 0.2); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
-        .lightbox-close:hover { background: rgba(255, 255, 255, 0.4); transform: rotate(90deg); }
-
         @media (max-width: 768px) {
             .hamburger { display: flex; }
-             .navbar {
-
-       
-            height: 90px;
-            
-        } 
             .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background: white; width: 100%; text-align: center; transition: left 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); padding: 1.5rem 0; }
             .nav-menu.active { left: 0; }
             .nav-link { padding: 0.8rem; font-size: 1.1rem; }
@@ -101,10 +85,8 @@
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 1rem; }
             .section-title { font-size: 2.2rem; }
-            .featured-post { grid-template-columns: 1fr; }
-            .featured-content { padding: 2rem; }
-            .featured-content h2 { font-size: 1.6rem; }
-            .blog-grid { grid-template-columns: 1fr; }
+            .article-content { padding: 2rem; }
+            .article-title { font-size: 2rem; }
         }
 
         @media (max-width: 480px) {
@@ -113,8 +95,8 @@
             .hero p { font-size: 0.9rem; }
             .section-title { font-size: 1.8rem; }
             .logo img { max-height: 50px; }
-            .featured-content { padding: 1.5rem; }
-            .featured-content h2 { font-size: 1.4rem; }
+            .article-content { padding: 1.5rem; }
+            .article-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -136,147 +118,134 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Our Blog</h1>
-            <p>Stories, insights, and updates from the field of women's health</p>
-            <a href="#blog" class="cta-button">Explore Articles</a>
+            <h1>Menstrual Hygiene</h1>
+            <p>Essential knowledge for health, comfort, and confidence during your period</p>
+            <a href="#article" class="cta-button">Read the Guide</a>
         </div>
     </section>
 
-    <section class="blog-content" id="blog">
-        <div class="container">
-            <h2 class="section-title">Featured Story</h2>
-            <p class="section-subtitle">Dive deep into our most impactful initiatives and community transformations</p>
+    <section class="container" id="article">
+        <article class="article-content">
+            <header class="article-header">
+                <span class="article-badge">Education</span>
+                <h1 class="article-title">Menstrual Hygiene: A Comprehensive Guide</h1>
+                <span class="article-meta"><i class="far fa-calendar-alt"></i> November 07, 2025</span>
+            </header>
             
-            <div class="featured-post">
-                <img src="assets/IMG_5124.webp" alt="Community Health Workshop" onclick="openLightbox('assets/IMG_5124.webp')">
-                <div class="featured-content">
-                    <span class="featured-badge">Featured</span>
-                    <h2>Empowering Communities Through Health Education</h2>
-                    <span class="blog-date"><i class="far fa-calendar-alt"></i> April 15, 2024</span>
-                    <p>Our recent health education workshops in Ibadan have reached over 500 women, providing essential knowledge about reproductive health, menstrual hygiene, and preventive care. Through interactive sessions and hands-on demonstrations, we're breaking down barriers and empowering women to take charge of their health journey.</p>
-                    <a href="#" class="read-more-btn">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            <div class="article-body">
+                <h2>Overview</h2>
+                <p>Roughly every month, the inner surface of the uterus — called the endometrium — thickens in preparation for pregnancy. The hormones oestrogen and progesterone rise. When fertilization and implantation do not occur, these levels drop, causing the uterus to shed this endometrium, with blood, tissue, and mucus flowing out of the vagina. Chemicals called prostaglandins are also released, causing the uterus to contract, thus aiding with expulsion. Mood changes, fatigue, headaches, and intestinal issues could also happen. This entire process is called the menstrual cycle and repeats itself every 28-35 days; the blood flow, or the period, happens within 3 and 7 days.</p>
+                <p>Menstrual contents provide an ideal environment for bacteria to grow, increasing the risk of infection. Maintaining good menstrual hygiene is essential to preventing infections, odor, and discomfort during the menstrual cycle. It also makes people feel more at ease throughout their periods, improving their physical, mental, and social health.</p>
+
+                <h2>What Are the Different Types of Menstrual Products?</h2>
+                <p>There are many different products you can use during your period. They include:</p>
+                
+                <h3>Pads</h3>
+                <p>Pads are attached to the inside of your underwear to absorb blood. They are the recommended menstrual product. Pads contain absorbent material and come in different sizes and thicknesses. Some types are disposable; others you can wash and reuse. Change sanitary pads every 3-5 hours, no matter how light the flow. Change them more frequently if your period is heavy. The sanitary pad has three layers: the lowest layer that lies on your underwear, the middle layer that soaks the blood quickly and prevents leakage, and the perforated surface layer closest to the skin keeps the skin dry and acts as a barrier between the skin and the absorbed fluid. It is very convenient, easy to use, and allows normal daily activities. They should be disposed of by wrapping them in newspaper and throwing them inside a bin that is emptied daily. They can also be buried in deep pits or burnt.</p>
+
+                <h3>Reusable Cloth Pads</h3>
+                <p>The reusable cloth pad (different from the sanitary pad) is made from clean cotton material to collect menstrual fluid. The cloth should be changed 3-4 times during the day. The used cloth should be washed separately from other clothes with hot water and soap and dried in the sun. If the cloth must be used again, it must be stored in a dry place. It can either be bought or made locally. This is an alternative for girls in low- and middle-income countries with limited resources.</p>
+
+                <h3>Tampons</h3>
+                <p>Tampons are placed inside the vaginal canal to absorb blood and vaginal secretions during menstruation. These are usually made of cotton or another absorbent material. Tampons are compressed so that they are easy to insert into your vagina. Once inside the body, the tampon expands as it absorbs moisture and blood. Tampons are available in different sizes and absorbencies, depending on how heavy your period is. Some come with disposable plastic or cardboard "applicators" to make them easier to put in and have a string that hangs outside of the body to help you remove the tampon. Tampons should be changed at least every 4 to 8 hours. It can increase the vaginal pH, and predisposes to infection which can lead to a condition called “toxic shock syndrome.” Use the lowest-absorbency tampon needed. If you can wear one tampon for up to 8 hours without changing, the absorbency may be too high.</p>
+
+                <h3>Menstrual Sponges</h3>
+                <p>A menstrual sponge is a natural or synthetic sea sponge inserted into the vaginal canal like a tampon used to absorb menstrual fluid. Sponges absorb menstrual blood better, but it should be changed every 8 hours. It is reusable after cleaning and can be used for up to 6 months.</p>
+
+                <h3>Menstrual Cups and Discs</h3>
+                <p>Menstrual cups and discs are small, flexible cups or discs made of rubber or a similar material. They go inside the vagina to catch blood before it leaves the body. Cups and discs come in different brands and sizes. They can be worn for up to 12 hours, then washed and reused.</p>
+                <ul>
+                    <li><strong>Menstrual Cup:</strong> A reusable small flexible funnel-shaped cup made of rubber, latex or silicone inserted into the vagina canal to collect menstrual fluid. There are various sizes of menstrual cups. The appropriate size depends on your age, length of the cervix, previous vaginal delivery, strength of pelvic floor muscles, firmness, and flexibility of the cup. A menstrual cup can be worn for 6 to 12 hours. Reusable menstrual cups are durable and can last for 6 months to 10 years. It should be cleaned and stored properly.</li>
+                    <li><strong>Menstrual Disc:</strong> A small flexible disc made of rubber, plastic, polymer, resins, or silicone that fits into the vaginal fornix, under the cervix to collect menstrual fluid. Menstrual discs are usually disposable but hold more blood than pads and tampons. It can also be worn for 6 to 12 hours. Complications of menstrual discs include leakage, pain, difficulty with removal, allergies, infection, and toxic shock syndrome. Clean cups every day after use. Sanitize menstrual cups after your period is over by rinsing them thoroughly and then placing them in boiling water for one to two minutes.</li>
+                </ul>
+
+                <h3>Period Underwear and Swimwear</h3>
+                <p>Period underwear and swimwear are special underwear and swimwear that absorb blood. These can be washed and reused. Period underwear is designed like regular underwear but made up of absorbent materials like microfiber polyester to absorb the menstrual blood. It is recommended to change menstrual underwear every 8 hours. Most reusable period underwear is machine washable. However, some menstrual underwear products have been linked with cancer. Follow product directions on the best way to clean.</p>
+
+                <h2>Practical Scenario: Blessing's Concern</h2>
+                <div class="scenario">
+                    <p><strong>Blessing,</strong> an 18-year-old girl who is from a poor home is worried about the appropriate menstrual product. Her parents cannot afford sanitary pads for her menses. Her mother has instructed her to use pieces of cloth as menstrual products, but she thinks it is unhygienic.</p>
+                    <p><strong>Solution:</strong> She can use cloth pads as a menstrual product, but she must maintain cleanliness. The cloth must be clean. She cannot use rags. The clean cloth must be thoroughly washed and dried in the sun. It can also be ironed and kept in a dry place.</p>
                 </div>
+
+                <h2>Practice Healthy Habits During Your Period</h2>
+                <p>You can choose any menstrual product to use during your period. Regardless, follow these tips when you are using menstrual products, in addition to any instructions that come with each product:</p>
+                <ul>
+                    <li>Wash your hands before and after using the restroom and before and after using a menstrual product.</li>
+                    <li>Discard used disposable menstrual products properly: wrap them with toilet paper, a tissue, a newspaper or other material and then toss in a designated trash bin. Do not flush menstrual products down the toilet.</li>
+                    <li>Wear lightweight, breathable clothing (such as cotton underwear). Tight fabrics can trap moisture and heat, allowing germs to grow.</li>
+                    <li>Change your menstrual products regularly. Trapped moisture provides a breeding ground for bacteria and fungi. Wearing a pad or period underwear for too long can lead to a rash or an infection.</li>
+                    <li>Keep your genital area clean. Wash the outside of your vagina (vulva) and bottom every day. When you go to the bathroom, wipe from the front of your body toward the back, not the other way. Use only water to rinse your vulva - the vagina is a self-cleaning organ.</li>
+                    <li>Use unscented toilet paper, tampons, or pads. Scented hygiene products can irritate the skin and impact your natural pH balance.</li>
+                    <li>Drink enough liquids. This can help wash out your urinary tract and help prevent infections, like yeast infections.</li>
+                    <li>Track and monitor your period. Your menstrual cycle is a valuable marker for your overall health. Irregular periods can be a sign of a disease. You can track your period on a calendar or with an app on your phone designed for this purpose.</li>
+                    <li>Remember to perform a Breast Self-Examination. Your breasts should be examined within a week after your period starts regularly. You can check for any changes and note them early enough if they require any intervention.</li>
+                    <li>Visit a healthcare provider for your annual check-up. An annual wellness exam is a full check-up that includes a pap smear, a pelvic exam, and a breast exam. These exams are essential for good reproductive health as they can catch early signs of cancer or other health issues.</li>
+                </ul>
+                <p>If you have symptoms related to your period, it can help to:</p>
+                <ul>
+                    <li>Avoid salty foods and eating large meals – This might help if you have bloating.</li>
+                    <li>Take some medication – a non-steroidal anti-inflammatory medication (NSAID) preferably. Some drugs work more effectively for some compared to others, so know what works for you.</li>
+                    <li>Put a heating pad or hot water bottle on your lower belly – This can help relieve cramps. Make sure to not burn your skin by wrapping it in a bit of cloth.</li>
+                </ul>
+
+                <h2>Menstrual Hygiene Management</h2>
+                <p>According to Joint Monitoring Programme (JMP) of WHO and UNICEF, menstrual hygiene management refers to: “Women and adolescent girls are using a clean menstrual management material to absorb or collect menstrual blood, that can be changed in privacy as often as necessary for the duration of a menstrual period, using soap and water for washing the body as required, and having access to safe and convenient facilities to dispose of used menstrual management materials”</p>
+                <p>Menstrual Hygiene Management (MHM) refers to the accessibility of a clean menstrual product to absorb or collect blood that can be changed in privacy as often as necessary for the duration of the menstruation period, using soap and water for washing the body as required and having access to facilities to dispose of the used menstrual management materials. Good menstrual hygiene practices include:</p>
+                <ul>
+                    <li>Frequent changing of menstrual product</li>
+                    <li>Usage of clean menstrual product</li>
+                    <li>Safe and proper disposal of menstrual product</li>
+                    <li>Regular hand washing while changing the sanitary product.</li>
+                    <li>Cleaning from front to back after urination or defecation</li>
+                    <li>Frequent changing of underwear</li>
+                    <li>Wash your perineum regularly with water only.</li>
+                    <li>Have your bath regularly.</li>
+                </ul>
+
+                <h2>Practical Scenario: Roseline's Resistance</h2>
+                <div class="scenario">
+                    <p><strong>Roseline,</strong> a 13-year-old girl is always arguing with her mum about the need to have regular baths during her menses.</p>
+                    <p><strong>Solution:</strong> Roseline should be properly educated on menstrual hygiene by her mother so that she will understand the importance of cleanliness during the menstrual period.</p>
+                </div>
+
+                <h2>Period Plan</h2>
+                <p>A girl should be able to plan her period so that her daily activities will not be affected during menses. A period plan is a step-by-step guide that will help girls to successfully manage their menstrual cycles. A period plan should contain the precise response to the following questions:</p>
+                <ul>
+                    <li>How can I track the menstrual cycle?</li>
+                    <li>What is my cycle length?</li>
+                    <li>What is the duration of my period?</li>
+                    <li>Which method will be used to absorb blood flow?</li>
+                    <li>Where will I get the menstrual products?</li>
+                    <li>What are the ways to lessen the discomfort or pain?</li>
+                    <li>Who can I rely on for support?</li>
+                    <li>Which activities do I want to keep doing during my menses?</li>
+                </ul>
+
+                <h2>Practical Scenario: Ava's Embarrassment</h2>
+                <div class="scenario">
+                    <p><strong>Ava’s</strong> menstrual period usually starts while in school and her uniform usually gets soiled with her menses. She is generally ashamed of this situation as her friends normally appear prepared for their menses.</p>
+                    <p><strong>Solution:</strong> Ava should develop a menstrual plan.</p>
+                </div>
+
+                <a href="blog.html" class="back-btn">Back to Blog <i class="fas fa-arrow-left"></i></a>
             </div>
 
-            <h2 class="section-title" style="margin-top: 3rem;">Latest Updates</h2>
-            <p class="section-subtitle">Stay informed with our recent activities and health advocacy initiatives</p>
-            
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <img src="assets/IMG_1124.JPG" alt="Partnership Event" onclick="openLightbox('assets/IMG_1124.JPG')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Collaboration</span>
-                        <h3>Building Bridges: Our Partnership Success</h3>
-                        <p>Celebrating successful collaborations with leading health organizations to expand our reach and impact across Nigeria.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> September 28, 2024</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG_5103 (2).webp" alt="Policy Advocacy" onclick="openLightbox('assets/IMG_5103 (2).webp')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Advocacy</span>
-                        <h3>Championing Women's Health Rights</h3>
-                        <p>How our advocacy efforts are influencing policy changes to improve healthcare access for women across Nigeria.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> April 8, 2024</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG_7598.webp" alt="Menstrual Hygiene Workshop" onclick="openLightbox('assets/IMG_7598.webp')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Education</span>
-                        <h3>Breaking Taboos: Menstrual Hygiene Awareness</h3>
-                        <p>Our comprehensive menstrual hygiene program is educating young girls and women about healthy practices and breaking cultural stigmas.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> March 22, 2024</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG_9154.webp" alt="Family Planning" onclick="openLightbox('assets/IMG_9154.webp')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Reproductive Health</span>
-                        <h3>Family Planning: Empowering Choices</h3>
-                        <p>Providing comprehensive information about contraceptive options and reproductive health planning for informed decision-making.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> February 14, 2024</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG_8430.webp" alt="Cancer Screening" onclick="openLightbox('assets/IMG_8430.webp')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Prevention</span>
-                        <h3>Cervical Cancer: Early Detection Saves Lives</h3>
-                        <p>Our cervical cancer screening and awareness campaign is helping women understand the importance of regular health check-ups.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> January 30, 2024</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG_5154.webp" alt="Orphanage Outreach" onclick="openLightbox('assets/IMG_5154.webp')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Community Service</span>
-                        <h3>Caring for the Vulnerable: Orphanage Outreach</h3>
-                        <p>Bringing healthcare, education, and hope to orphaned children through our dedicated outreach programs.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> December 12, 2023</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG_6797 copy.jpg" alt="World Health Day" onclick="openLightbox('assets/IMG_6797 copy.jpg')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Events</span>
-                        <h3>World Health Day: Community Celebration</h3>
-                        <p>Marking World Health Day with free health screenings, educational workshops, and community engagement activities.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> April 7, 2024</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG-20250418-WA0280.jpg" alt="Project WANDEL" onclick="openLightbox('assets/IMG-20250418-WA0280.jpg')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Partnership</span>
-                        <h3>Project WANDEL: Collaborative Health Initiatives</h3>
-                        <p>Join us as we partner with Project WANDEL to deliver comprehensive health services to underserved communities.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> October 10, 2024</span>
-                    </div>
-                </article>
-
-                <article class="blog-card">
-                    <img src="assets/IMG_8622.JPG" alt="Glea Network" onclick="openLightbox('assets/IMG_8622.JPG')">
-                    <div class="blog-card-content">
-                        <span class="blog-category">Networking</span>
-                        <h3>Glea Network: Strengthening Healthcare Systems</h3>
-                        <p>Working with the Glea Network to build stronger, more resilient healthcare systems for women across Nigeria.</p>
-                        <span class="blog-date"><i class="far fa-calendar-alt"></i> November 18, 2024</span>
-                    </div>
-                </article>
+            <div class="references">
+                <h3>References</h3>
+                <ul>
+                    <li><a href="https://www.worldbank.org/en/topic/water/brief/menstrual-health-and-hygiene" target="_blank">World Bank - Menstrual Health and Hygiene</a></li>
+                    <li><a href="https://www.publichealthnotes.com/menstruation-and-menstrual-hygiene-management-mhm/" target="_blank">Public Health Notes - Menstruation and MHM</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.cornerstone.app.cornerstones" target="_blank">Cornerstone App on Google Play</a></li>
+                    <li><a href="https://www.cdc.gov/hygiene/about/menstrual-hygiene.html" target="_blank">CDC - Menstrual Hygiene</a></li>
+                    <li><a href="https://womenshealth.gov/menstrual-cycle/your-menstrual-cycle" target="_blank">Women's Health - Your Menstrual Cycle</a></li>
+                    <li><a href="https://womenshealth.gov/menstrual-cycle/your-menstrual-cycle-and-your-health" target="_blank">Women's Health - Cycle and Health</a></li>
+                    <li><a href="https://womenshealth.gov/menstrual-cycle/period-problems" target="_blank">Women's Health - Period Problems</a></li>
+                    <li><a href="https://bmcwomenshealth.biomedcentral.com/articles/10.1186/s12905-018-0527-y" target="_blank">BMC Women's Health Study</a></li>
+                </ul>
             </div>
-        </div>
+        </article>
     </section>
-
-    <section class="categories-section">
-        <div class="container">
-            <h2 class="section-title">Explore by Category</h2>
-            <div class="categories-grid">
-                <a href="#" class="category-tag"><i class="fas fa-hands-helping"></i> Collaboration</a>
-                <a href="#" class="category-tag"><i class="fas fa-bullhorn"></i> Advocacy</a>
-                <a href="#" class="category-tag"><i class="fas fa-graduation-cap"></i> Education</a>
-                <a href="#" class="category-tag"><i class="fas fa-heartbeat"></i> Reproductive Health</a>
-                <a href="#" class="category-tag"><i class="fas fa-shield-alt"></i> Prevention</a>
-                <a href="#" class="category-tag"><i class="fas fa-users"></i> Community Service</a>
-                <a href="#" class="category-tag"><i class="fas fa-calendar-check"></i> Events</a>
-                <a href="#" class="category-tag"><i class="fas fa-network-wired"></i> Partnership</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-            <img id="lightbox-img" src="" alt="Blog image">
-        </div>
-    </div>
 
     <footer>
         <div class="footer-content">
@@ -333,29 +302,6 @@
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
-        });
-
-        function openLightbox(imageSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imageSrc;
-            lightbox.style.display = 'flex';
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
         });
     </script>
 </body>
