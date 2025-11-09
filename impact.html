@@ -38,32 +38,14 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
         .section-title { font-size: 2.8rem; font-weight: bold; color: var(--primary-color); text-align: center; margin-bottom: 2.5rem; position: relative; padding-bottom: 1rem; letter-spacing: 1px; }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--secondary-color); border-radius: 2px; }
-        
-        .impact-section { margin-bottom: 4rem; }
-        .impact-section h3 { color: var(--primary-color); text-align: center; margin: 2rem 0 1.5rem; font-size: 2rem; }
-        
-        .project-card { background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); padding: 2rem; margin-bottom: 3rem; transition: all 0.3s ease; }
-        .project-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .project-header { text-align: center; margin-bottom: 1.5rem; }
-        .project-header h4 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 0.5rem; }
-        .project-header p { color: var(--text-light); font-size: 1.1rem; }
-        
-        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-        .media-item { position: relative; width: 100%; padding-top: 75%; overflow: hidden; border-radius: 10px; cursor: pointer; }
-        .media-item img, .media-item video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-        .media-item:hover img, .media-item:hover video { transform: scale(1.05); }
-        .media-item .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; background: rgba(0,0,0,0.5); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-        
-        .button-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .see-more-btn { display: inline-block; padding: 0.8rem 2rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; }
-        .see-more-btn:hover { background: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4); }
-        
-        /* Lightbox */
-        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 2000; justify-content: center; align-items: center; }
-        .lightbox-content { position: relative; max-width: 90%; max-height: 90vh; }
-        .lightbox-content img, .lightbox-content video { max-width: 100%; max-height: 90vh; border-radius: 10px; }
-        .lightbox-close { position: absolute; top: 20px; right: 20px; color: white; font-size: 2.5rem; cursor: pointer; background: rgba(255,255,255,0.2); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
-        .lightbox-close:hover { background: rgba(255,255,255,0.4); transform: rotate(90deg); }
+        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .impact-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; transition: all 0.3s ease; }
+        .impact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .impact-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem; }
+        .impact-card h4 { color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .impact-card p { color: var(--text-light); margin-bottom: 1rem; }
+        .view-gallery-btn { display: inline-block; padding: 0.7rem 1.8rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; }
+        .view-gallery-btn:hover { background: var(--secondary-color); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4); }
         
         footer { background: var(--primary-color); color: white; padding: 3rem 1.5rem 1rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
@@ -77,12 +59,6 @@
 
         @media (max-width: 768px) {
             .hamburger { display: flex; }
-             .navbar {
-
-       
-            height: 90px;
-            
-        } 
             .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background: white; width: 100%; text-align: center; transition: left 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); padding: 1.5rem 0; }
             .nav-menu.active { left: 0; }
             .nav-link { padding: 0.8rem; font-size: 1.1rem; }
@@ -91,13 +67,13 @@
             .hero p { font-size: 1rem; }
             .section-title { font-size: 2.2rem; }
             .logo img { max-height: 61px; }
-            .media-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.5rem; }
+            .impact-grid { grid-template-columns: 1fr; }
         }
+        
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.6rem; }
             .section-title { font-size: 1.8rem; }
             .logo img { max-height: 55.8px; }
-            .project-header h4 { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -129,214 +105,104 @@
         <div class="container">
             <h2 class="section-title">Transforming Lives</h2>
             
-            <div class="impact-section">
-                <h3>Project Events</h3>
+            <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem; font-size: 2rem;">Project Events</h3>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <img src="assets/IMG_6797 copy.jpg" alt="World Health Day - Idi Ogungun">
+                    <h4>World Health Day - Idi-Ogungun Ibadan '24</h4>
+                    <p>Health awareness outreach improving community well-being.</p>
+                    <a href="https://photos.app.goo.gl/2Eh2B5jXMw4fbF7a6" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
                 
-                <!-- World Health Day -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>World Health Day - Idi Ogungun</h4>
-                        <p>Health awareness outreach improving community well-being</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_6797 copy.jpg" data-type="image"><img src="assets/IMG_6797 copy.jpg" alt="World Health Day 1"></div>
-                        <div class="media-item" data-src="assets/IMG_6797.jpg" data-type="image"><img src="assets/IMG_6797 copy.jpg" alt="World Health Day 2"></div>
-                        <div class="media-item" data-src="assets/IMG_6797.jpg" data-type="image"><img src="assets/IMG_6797 copy.jpg" alt="World Health Day 3"></div>
-                        <div class="media-item" data-src="assets/IMG_6797.jpg" data-type="image"><img src="assets/IMG_6797 copy.jpg" alt="World Health Day 4"></div>
-                        <div class="media-item" data-src="assets/IMG_6797.jpg" data-type="image"><img src="assets/IMG_6797 copy.jpg" alt="World Health Day 5"></div>
-                        <div class="media-item" data-src="assets/video1.mp4" data-type="video">
-                            <!-- <video src="assets/World Health/IMG_6671.MOV"></video> -->
-                            <div class="play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/1kzpgDy5J1wGLTfa96eKkFAFZhhOhhaR9" target="_blank" class="see-more-btn">See More (52 items)</a>
-                    </div>
+                <div class="impact-card">
+                    <img src="assets/IMG_7598.webp" alt="Menstrual Hygiene - UCH Staff">
+                    <h4>Menstrual Hygiene - UCH Staff School '24</h4>
+                    <p>Educating students on hygiene and health rights.</p>
+                    <a href="https://photos.app.goo.gl/vgikbmGV6JqN6zMu7" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
+                
+                <div class="impact-card">
+                    <img src="assets/UCH.jpg" alt="Menstrual Hygiene - UCH">
+                    <h4>Menstrual Hygiene - University College Hospital '24</h4>
+                    <p>Empowering women with essential health knowledge.</p>
+                    <a href="https://photos.app.goo.gl/3njcVmEhhSXUrTWw7" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
+                
+                <div class="impact-card">
+                    <img src="assets/IMG_5154.webp" alt="Jesus Kids Orphanage">
+                    <h4>Visit - Jesus Kids' Orphanage Home '24</h4>
+                    <p>Support and care for orphaned children.</p>
+                    <a href="https://photos.app.goo.gl/z7UdTMVQtKGWuWwM6" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
+                
+                <div class="impact-card">
+                    <img src="assets/IMG_9154.webp" alt="Contraceptive - Idia Hall">
+                    <h4>Contraceptive Care - University of Ibadan '25</h4>
+                    <p>Promoting family planning awareness.</p>
+                    <a href="https://photos.app.goo.gl/P4oh173HxpdNSgSW6" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
+                
+                <div class="impact-card">
+                    <img src="assets/IMG_8430.webp" alt="Cervical Cancer - ISI">
+                    <h4>Cervical Cancer - International School Ibadan '24</h4>
+                    <p>Cervical cancer awareness efforts.</p>
+                    <a href="https://photos.app.goo.gl/h2baSY43TZq75zm7A" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
                 </div>
 
-               
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Menstrual Hygiene - UCH Staff</h4>
-                        <p>Educating students on hygiene and health rights</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_7598.webp" data-type="image"><img src="assets/IMG_7598.webp" alt="UCH Staff 1"></div>
-                        <div class="media-item" data-src="assets/IMG_7599.webp" data-type="image"><img src="assets/IMG_7598.webp" alt="UCH Staff 2"></div>
-                        <div class="media-item" data-src="assets/IMG_7600.webp" data-type="image"><img src="assets/IMG_7598.webp" alt="UCH Staff 3"></div>
-                        <div class="media-item" data-src="assets/IMG_7601.webp" data-type="image"><img src="assets/IMG_7598.webp" alt="UCH Staff 4"></div>
-                        <div class="media-item" data-src="assets/IMG_7602.webp" data-type="image"><img src="assets/IMG_7598.webp" alt="UCH Staff 5"></div>
-                        <div class="media-item" data-src="assets/video2.mp4" data-type="video">
-                            <video src="assets/video2.mp4"></video>
-                            <div class="play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/1-2nfdSA5s1ZuS8HkgaXz1EzuHsaQzqOR" target="_blank" class="see-more-btn">See More (38 items)</a>
-                    </div>
-                </div>
-
-                <!-- Menstrual Hygiene ABH -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Menstrual Hygiene - ABH</h4>
-                        <p>Empowering women with essential health knowledge</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_7604.webp" data-type="image"><img src="assets/IMG_7604.webp" alt="ABH 1"></div>
-                        <div class="media-item" data-src="assets/IMG_7605.webp" data-type="image"><img src="assets/IMG_7604.webp" alt="ABH 2"></div>
-                        <div class="media-item" data-src="assets/IMG_7606.webp" data-type="image"><img src="assets/IMG_7604.webp" alt="ABH 3"></div>
-                        <div class="media-item" data-src="assets/IMG_7607.webp" data-type="image"><img src="assets/IMG_7604.webp" alt="ABH 4"></div>
-                        <div class="media-item" data-src="assets/IMG_7608.webp" data-type="image"><img src="assets/IMG_7604.webp" alt="ABH 5"></div>
-                        <div class="media-item" data-src="assets/IMG_7609.webp" data-type="image"><img src="assets/IMG_7604.webp" alt="ABH 6"></div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/16gavCi9CyRSRowKqecGTDLQF18BV74xX" target="_blank" class="see-more-btn">See More (45 items)</a>
-                    </div>
-                </div>
-
-                <!-- Jesus Kids Orphanage -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Jesus Kids Orphanage</h4>
-                        <p>Support and care for orphaned children</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_5154.webp" data-type="image"><img src="assets/IMG_5154.webp" alt="Orphanage 1"></div>
-                        <div class="media-item" data-src="assets/IMG_5155.webp" data-type="image"><img src="assets/IMG_5154.webp" alt="Orphanage 2"></div>
-                        <div class="media-item" data-src="assets/IMG_5156.webp" data-type="image"><img src="assets/IMG_5154.webp" alt="Orphanage 3"></div>
-                        <div class="media-item" data-src="assets/IMG_5157.webp" data-type="image"><img src="assets/IMG_5154.webp" alt="Orphanage 4"></div>
-                        <div class="media-item" data-src="assets/video3.mp4" data-type="video">
-                            <video src="assets/video3.mp4"></video>
-                            <div class="play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="media-item" data-src="assets/IMG_5158.webp" data-type="image"><img src="assets/IMG_5154.webp" alt="Orphanage 6"></div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/1-BXX-Qpcx2oEl5GV6Ez8sk7J4NT1ioB0" target="_blank" class="see-more-btn">See More (28 items)</a>
-                    </div>
-                </div>
-
-                <!-- Contraceptive Idia Hall -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Contraceptive - Idia Hall</h4>
-                        <p>Promoting family planning awareness</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_9154.webp" data-type="image"><img src="assets/IMG_9154.webp" alt="Idia Hall 1"></div>
-                        <div class="media-item" data-src="assets/IMG_9155.webp" data-type="image"><img src="assets/IMG_9154.webp" alt="Idia Hall 2"></div>
-                        <div class="media-item" data-src="assets/IMG_9156.webp" data-type="image"><img src="assets/IMG_9154.webp" alt="Idia Hall 3"></div>
-                        <div class="media-item" data-src="assets/IMG_9157.webp" data-type="image"><img src="assets/IMG_9154.webp" alt="Idia Hall 4"></div>
-                        <div class="media-item" data-src="assets/IMG_9158.webp" data-type="image"><img src="assets/IMG_9154.webp" alt="Idia Hall 5"></div>
-                        <div class="media-item" data-src="assets/IMG_9159.webp" data-type="image"><img src="assets/IMG_9154.webp" alt="Idia Hall 6"></div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/1-2lNMcRvHwevP7OuX1IZj6oRrOC1Xwn9" target="_blank" class="see-more-btn">See More (35 items)</a>
-                    </div>
-                </div>
-
-                <!-- Cervical Cancer ISI -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Cervical Cancer - ISI</h4>
-                        <p>Cervical cancer awareness efforts</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_8430.webp" data-type="image"><img src="assets/IMG_8430.webp" alt="ISI 1"></div>
-                        <div class="media-item" data-src="assets/IMG_8431.webp" data-type="image"><img src="assets/IMG_8431.webp" alt="ISI 2"></div>
-                        <div class="media-item" data-src="assets/IMG_8432.webp" data-type="image"><img src="assets/IMG_8432.webp" alt="ISI 3"></div>
-                        <div class="media-item" data-src="assets/video4.mp4" data-type="video">
-                            <video src="assets/video4.mp4"></video>
-                            <div class="play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="media-item" data-src="assets/IMG_8433.webp" data-type="image"><img src="assets/IMG_8433.webp" alt="ISI 5"></div>
-                        <div class="media-item" data-src="assets/IMG_8434.webp" data-type="image"><img src="assets/IMG_8434.webp" alt="ISI 6"></div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/1z2rVVApEv-PjYL9LehojYgPmPUm8Lzsf" target="_blank" class="see-more-btn">See More (42 items)</a>
-                    </div>
+                <div class="impact-card">
+                    <img src="assets/Agbowo.jpg" alt="Community Outreach">
+                    <h4>Community Outreach - Agbowo Primary Health Centre</h4>
+                    <p>Health services for underserved communities.</p>
+                    <a href="https://photos.app.goo.gl/U2HUjdKz1ivVQqcT8" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
                 </div>
             </div>
-
-            <div class="impact-section">
-                <h3>Collaborations</h3>
+            
+            <h3 style="color: var(--primary-color); text-align: center; margin: 3rem 0 1.5rem; font-size: 2rem;">Collaborations</h3>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <img src="assets/pW1.jpg" alt="Project WANDEL">
+                    <h4>Project WANDEL - International Day of the Girl Child '24</h4>
+                    <p>Collaborative health initiatives with partners.</p>
+                    <a href="https://photos.app.goo.gl/MNvkVdLJShaTNCENA" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
                 
-                <!-- Project WANDEL -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Project WANDEL</h4>
-                        <p>Collaborative health initiatives with partners</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG-20250418-WA0280.jpg" data-type="image"><img src="assets/IMG-20250418-WA0280.jpg" alt="WANDEL 1"></div>
-                        <div class="media-item" data-src="assets/IMG-20250418-WA0281.jpg" data-type="image"><img src="assets/IMG-20250418-WA0281.jpg" alt="WANDEL 2"></div>
-                        <div class="media-item" data-src="assets/IMG-20250418-WA0282.jpg" data-type="image"><img src="assets/IMG-20250418-WA0282.jpg" alt="WANDEL 3"></div>
-                        <div class="media-item" data-src="assets/video5.mp4" data-type="video">
-                            <video src="assets/video5.mp4"></video>
-                            <div class="play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="media-item" data-src="assets/IMG-20250418-WA0283.jpg" data-type="image"><img src="assets/IMG-20250418-WA0283.jpg" alt="WANDEL 5"></div>
-                        <div class="media-item" data-src="assets/IMG-20250418-WA0284.jpg" data-type="image"><img src="assets/IMG-20250418-WA0284.jpg" alt="WANDEL 6"></div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/165QaRF3AKCeEGjqq545tRbo6W_6N49bl" target="_blank" class="see-more-btn">See More (31 items)</a>
-                    </div>
+                <div class="impact-card">
+                    <img src="assets/IMG_1124.JPG" alt="Project Promote Health">
+                    <h4>Project Promote Health - University of Ibadan '25</h4>
+                    <p>Joint efforts to promote women's health.</p>
+                    <a href="https://photos.app.goo.gl/8xfz8jCc3PVZvS447" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
+                
+                <div class="impact-card">
+                    <img src="assets/gl2.JPG" alt="Glea Network">
+                    <h4>Glea Network - Oba Akinbiyi Model School '25</h4>
+                    <p>Networked support for health programs.</p>
+                    <a href="https://photos.app.goo.gl/eoL3XAsAXN1uLpz37" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
                 </div>
 
-                <!-- Project Promote Health -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Project Promote Health</h4>
-                        <p>Joint efforts to promote women's health</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_1124.JPG" data-type="image"><img src="assets/IMG_1124.JPG" alt="Promote Health 1"></div>
-                        <div class="media-item" data-src="assets/IMG_1125.JPG" data-type="image"><img src="assets/IMG_1125.JPG" alt="Promote Health 2"></div>
-                        <div class="media-item" data-src="assets/IMG_1126.JPG" data-type="image"><img src="assets/IMG_1126.JPG" alt="Promote Health 3"></div>
-                        <div class="media-item" data-src="assets/IMG_1127.JPG" data-type="image"><img src="assets/IMG_1127.JPG" alt="Promote Health 4"></div>
-                        <div class="media-item" data-src="assets/video6.mp4" data-type="video">
-                            <video src="assets/video6.mp4"></video>
-                            <div class="play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                        <div class="media-item" data-src="assets/IMG_1128.JPG" data-type="image"><img src="assets/IMG_1128.JPG" alt="Promote Health 6"></div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/1vgEw7STWfz0OTIwntY8eoFBnMRFqDXhz" target="_blank" class="see-more-btn">See More (40 items)</a>
-                    </div>
+                <div class="impact-card">
+                    <img src="assets/methodist.JPG" alt="Breast Cancer Awareness">
+                    <h4>Glea Network - Breast Cancer Awareness, Methodist Grammar '24</h4>
+                    <p>Raising awareness about breast cancer prevention.</p>
+                    <a href="https://photos.app.goo.gl/RTHtHiWxKbXZMe2n6" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
                 </div>
 
-                <!-- Glea Network -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h4>Glea Network</h4>
-                        <p>Networked support for health programs</p>
-                    </div>
-                    <div class="media-grid">
-                        <div class="media-item" data-src="assets/IMG_8622.JPG" data-type="image"><img src="assets/IMG_8622.JPG" alt="Glea 1"></div>
-                        <div class="media-item" data-src="assets/IMG_8623.JPG" data-type="image"><img src="assets/IMG_8623.JPG" alt="Glea 2"></div>
-                        <div class="media-item" data-src="assets/IMG_8624.JPG" data-type="image"><img src="assets/IMG_8624.JPG" alt="Glea 3"></div>
-                        <div class="media-item" data-src="assets/IMG_8625.JPG" data-type="image"><img src="assets/IMG_8625.JPG" alt="Glea 4"></div>
-                        <div class="media-item" data-src="assets/IMG_8626.JPG" data-type="image"><img src="assets/IMG_8626.JPG" alt="Glea 5"></div>
-                        <div class="media-item" data-src="assets/video7.mp4" data-type="video">
-                            <video src="assets/video7.mp4"></video>
-                            <div class="play-icon"><i class="fas fa-play"></i></div>
-                        </div>
-                    </div>
-                    <div class="button-group">
-                        <a href="https://drive.google.com/drive/folders/164ltqk56IPyXhAnBCLmruVLt3V9HsznX" target="_blank" class="see-more-btn">See More (36 items)</a>
-                    </div>
+                <div class="impact-card">
+                    <img src="assets/awareness.jpg" alt="Breast Cancer Walk">
+                    <h4>Glea Network - Breast Cancer Awareness Walk '24</h4>
+                    <p>Community walk to support breast cancer awareness.</p>
+                    <a href="https://photos.app.goo.gl/WwnaMghKgYuYFLcE8" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
+
+                <div class="impact-card">
+                    <img src="assets/glea w.webp" alt="Baptist High School">
+                    <h4>Glea Network - Breast Cancer Awareness, Baptist High '24</h4>
+                    <p>Educating students on breast cancer awareness.</p>
+                    <a href="https://photos.app.goo.gl/PSiuSt5AQw38DUZe9" target="_blank" class="view-gallery-btn"><i class="fas fa-images"></i> View Gallery</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content" id="lightboxContent">
-            <span class="lightbox-close">&times;</span>
-        </div>
-    </div>
 
     <footer>
         <div class="footer-content">
@@ -374,9 +240,9 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
+        
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
@@ -395,60 +261,6 @@
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
-        });
-
-        // Lightbox functionality
-        const lightbox = document.getElementById('lightbox');
-        const lightboxContent = document.getElementById('lightboxContent');
-        const closeBtn = document.querySelector('.lightbox-close');
-
-        document.querySelectorAll('.media-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const src = this.getAttribute('data-src');
-                const type = this.getAttribute('data-type');
-                
-                // Clear previous content
-                const existingMedia = lightboxContent.querySelector('img, video');
-                if (existingMedia) existingMedia.remove();
-                
-                if (type === 'image') {
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = 'Gallery image';
-                    lightboxContent.insertBefore(img, closeBtn);
-                } else if (type === 'video') {
-                    const video = document.createElement('video');
-                    video.src = src;
-                    video.controls = true;
-                    video.autoplay = true;
-                    lightboxContent.insertBefore(video, closeBtn);
-                }
-                
-                lightbox.style.display = 'flex';
-            });
-        });
-
-        closeBtn.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-            const video = lightboxContent.querySelector('video');
-            if (video) video.pause();
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-                const video = lightboxContent.querySelector('video');
-                if (video) video.pause();
-            }
-        });
-
-        // Close lightbox on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-                lightbox.style.display = 'none';
-                const video = lightboxContent.querySelector('video');
-                if (video) video.pause();
-            }
         });
     </script>
 </body>
