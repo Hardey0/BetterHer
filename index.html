@@ -330,9 +330,11 @@
             min-width: 250px;
             padding: 1rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            gap: 0.5rem;
         }
 
         .partners-slide img {
@@ -344,6 +346,14 @@
 
         .partners-slide:hover img {
             transform: scale(1.15);
+        }
+
+        .partner-name {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 0.5rem;
         }
 
         @keyframes scroll {
@@ -653,7 +663,7 @@
             }
 
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
             .goals-grid,
@@ -671,6 +681,7 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+          
         }
 
         @media (max-width: 480px) {
@@ -687,8 +698,11 @@
             }
 
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
+               .section-summary {
+            font-size: 1.1rem;
+             }
 
             .partners-slide {
                 min-width: 200px;
@@ -792,16 +806,46 @@
             </div>
             <div class="partners-carousel">
                 <div class="partners-track" id="partnersTrack">
-                    <a href="https://thegleanetwork.org/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/The Glea Network.png" alt="Glea Network"></a>
-                    <a href="https://www.linkedin.com/in/project-promote-health-38719735b" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project Promote Health 1.png" alt="Project Promote Health"></a>
-                    <a href="https://www.instagram.com/project_wandel/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project WANDEL.png" alt="Project WANDEL"></a>
-                    <a href="https://www.instagram.com/agah_ibadan/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/AGAH Logo PNG.png" alt="Action Group on Adolescent Health"></a>
-                    <a href="https://www.instagram.com/uchjaycees/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Junior Chamber International, UCH.png" alt="Junior Chamber International, University College Hospital"></a>
-                    <a href="https://thegleanetwork.org/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/The Glea Network.png" alt="Glea Network"></a>
-                    <a href="https://www.linkedin.com/in/project-promote-health-38719735b" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project Promote Health 1.png" alt="Project Promote Health"></a>
-                    <a href="https://www.instagram.com/project_wandel/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Project WANDEL.png" alt="Project WANDEL"></a>
-                    <a href="https://www.instagram.com/agah_ibadan/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/AGAH Logo PNG.png" alt="Action Group on Adolescent Health"></a>
-                    <a href="https://www.instagram.com/uchjaycees/" target="_blank" class="partners-slide" rel="noopener noreferrer"><img src="./assets/logo/Junior Chamber International, UCH.png" alt="Junior Chamber International, University College Hospital"></a>
+                    <a href="https://thegleanetwork.org/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/The Glea Network.png" alt="Glea Network">
+                        <span class="partner-name">The Glea Network</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/project-promote-health-38719735b" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/Project Promote Health 1.png" alt="Project Promote Health">
+                        <span class="partner-name">Project Promote Health</span>
+                    </a>
+                    <a href="https://www.instagram.com/project_wandel/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/Project WANDEL.png" alt="Project WANDEL">
+                        <span class="partner-name">Project WANDEL</span>
+                    </a>
+                    <a href="https://www.instagram.com/agah_ibadan/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/AGAH Logo PNG.png" alt="Action Group on Adolescent Health">
+                        <span class="partner-name">Action Group on Adolescent Health</span>
+                    </a>
+                    <a href="https://www.instagram.com/uchjaycees/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/Junior Chamber International, UCH.png" alt="Junior Chamber International, UCH">
+                        <span class="partner-name">Junior Chamber International, UCH</span>
+                    </a>
+                    <a href="https://thegleanetwork.org/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/The Glea Network.png" alt="Glea Network">
+                        <span class="partner-name">The Glea Network</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/project-promote-health-38719735b" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/Project Promote Health 1.png" alt="Project Promote Health">
+                        <span class="partner-name">Project Promote Health</span>
+                    </a>
+                    <a href="https://www.instagram.com/project_wandel/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/Project WANDEL.png" alt="Project WANDEL">
+                        <span class="partner-name">Project WANDEL</span>
+                    </a>
+                    <a href="https://www.instagram.com/agah_ibadan/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/AGAH Logo PNG.png" alt="Action Group on Adolescent Health">
+                        <span class="partner-name">Action Group on Adolescent Health</span>
+                    </a>
+                    <a href="https://www.instagram.com/uchjaycees/" target="_blank" class="partners-slide" rel="noopener noreferrer">
+                        <img src="./assets/logo/Junior Chamber International, UCH.png" alt="Junior Chamber International, UCH">
+                        <span class="partner-name">Junior Chamber International, UCH</span>
+                    </a>
                 </div>
             </div>
         </div>

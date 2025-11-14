@@ -12,73 +12,407 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon.ico"> 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary-color: #0149ac; --secondary-color: #fc1963; --accent-color: #f5edb1; --text-dark: #2d3748; --text-light: #718096; --bg-light: #f8f9fa; --white: #ffffff; }
-        body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--text-dark); overflow-x: hidden;
-}
+        :root { 
+            --primary-color: #0149ac; 
+            --secondary-color: #fc1963; 
+            --accent-color: #f5edb1; 
+            --text-dark: #2d3748; 
+            --text-light: #718096; 
+            --bg-light: #f8f9fa; 
+            --white: #ffffff; 
+        }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark); 
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 50%, #fff9e6 100%);
+            background-attachment: fixed;
+        }
         
-        .navbar { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000; transition: all 0.3s ease; }
-        .navbar.scrolled { background: rgba(255, 255, 255, 1); box-shadow: 0 2px 30px rgba(0,0,0,0.15); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
-        .logo img { max-height: 90px; width: auto; object-fit: contain; }
-        .nav-menu { display: flex; list-style: none; gap: 1.5rem; }
-        .nav-link { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s ease; padding: 0.5rem; position: relative; }
-        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--secondary-color); transition: width 0.3s ease; }
-        .nav-link:hover::after, .nav-link:focus::after { width: 100%; }
-        .nav-link:hover, .nav-link:focus { color: var(--primary-color); outline: none; }
-        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 0.5rem; }
-        .hamburger span { width: 30px; height: 4px; background: var(--primary-color); transition: all 0.3s ease; border-radius: 2px; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        .navbar { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(255, 255, 255, 0.98); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1); 
+            z-index: 1000; 
+            transition: all 0.3s ease; 
+        }
+        .navbar.scrolled { 
+            background: rgba(255, 255, 255, 1); 
+            box-shadow: 0 2px 30px rgba(0,0,0,0.15); 
+        }
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1rem 1.5rem; 
+        }
+        .logo img { 
+            max-height: 90px; 
+            width: auto; 
+            object-fit: contain; 
+        }
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 1.5rem; 
+        }
+        .nav-link { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            padding: 0.5rem; 
+            position: relative; 
+        }
+        .nav-link::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background: var(--secondary-color); 
+            transition: width 0.3s ease; 
+        }
+        .nav-link:hover::after, 
+        .nav-link:focus::after { 
+            width: 100%; 
+        }
+        .nav-link:hover, 
+        .nav-link:focus { 
+            color: var(--primary-color); 
+            outline: none; 
+        }
+        .hamburger { 
+            display: none; 
+            flex-direction: column; 
+            cursor: pointer; 
+            gap: 5px; 
+            padding: 0.5rem; 
+        }
+        .hamburger span { 
+            width: 30px; 
+            height: 4px; 
+            background: var(--primary-color); 
+            transition: all 0.3s ease; 
+            border-radius: 2px; 
+        }
+        .hamburger.active span:nth-child(1) { 
+            transform: rotate(45deg) translate(7px, 7px); 
+        }
+        .hamburger.active span:nth-child(2) { 
+            opacity: 0; 
+        }
+        .hamburger.active span:nth-child(3) { 
+            transform: rotate(-45deg) translate(7px, -7px); 
+        }
 
-        .hero { height: 60vh; background: linear-gradient(rgba(1, 73, 172, 0.7), rgba(252, 25, 99, 0.7)), url('assets/awareness.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
-        .hero h1 { font-family: 'More Sugar', cursive; font-size: 3rem; color: var(--accent-color); }
-        .hero p { font-size: 1.2rem; padding-bottom: 0.6em; }
-        .cta-button { padding: 0.8rem 2rem; background: var(--secondary-color); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4); display: inline-block; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(252, 25, 99, 0.6); }
+        .hero { 
+            height: 60vh; 
+            background: linear-gradient(rgba(1, 73, 172, 0.7), rgba(252, 25, 99, 0.7)), url('assets/awareness.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(252, 25, 99, 0.3), transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(1, 73, 172, 0.3), transparent 50%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 { 
+            font-family: 'More Sugar', cursive; 
+            font-size: 3rem; 
+            color: var(--accent-color); 
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            padding-bottom: 0.6em; 
+        }
+        .cta-button { 
+            padding: 0.8rem 2rem; 
+            background: var(--secondary-color); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(252, 25, 99, 0.4); 
+            display: inline-block; 
+        }
+        .cta-button:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 20px rgba(252, 25, 99, 0.6); 
+        }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
-        .section-title { font-size: 2.8rem; font-weight: bold; color: var(--primary-color); text-align: center; margin-bottom: 1rem; position: relative; padding-bottom: 1rem; letter-spacing: 1px; }
-        .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--secondary-color); border-radius: 2px; }
-        .section-subtitle { text-align: center; color: var(--text-light); font-size: 1.1rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 4rem 1.5rem; 
+            position: relative;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(252, 25, 99, 0.08), transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: -100px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(1, 73, 172, 0.08), transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .section-title { 
+            font-size: 2.8rem; 
+            font-weight: bold; 
+            color: var(--primary-color); 
+            text-align: center; 
+            margin-bottom: 1rem; 
+            position: relative; 
+            padding-bottom: 1rem; 
+            letter-spacing: 1px; 
+        }
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 80px; 
+            height: 4px; 
+            background: var(--secondary-color); 
+            border-radius: 2px; 
+        }
+        .section-subtitle { 
+            text-align: center; 
+            color: var(--text-light); 
+            font-size: 1.1rem; 
+            margin-bottom: 3rem; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
         
-        .article-content { background: white; border-radius: 15px; padding: 3rem; box-shadow: 0 5px 30px rgba(0,0,0,0.15); margin-bottom: 4rem; }
-        .article-header { text-align: center; margin-bottom: 2.5rem; }
-        .article-badge { display: inline-block; background: var(--secondary-color); color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
-        .article-title { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 1rem; }
-        .article-meta { color: var(--secondary-color); font-size: 0.95rem; font-weight: 500; display: block; margin-bottom: 1.5rem; }
-        .article-body { line-height: 1.8; color: var(--text-dark); }
-        .article-body h2 { color: var(--primary-color); font-size: 1.8rem; margin: 2rem 0 1rem; position: relative; padding-bottom: 0.5rem; }
-        .article-body h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--secondary-color); }
-        .article-body h3 { color: var(--primary-color); font-size: 1.5rem; margin: 1.5rem 0 0.8rem; }
-        .article-body p { margin-bottom: 1.2rem; }
-        .article-body ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.2rem; }
-        .article-body ul li { margin-bottom: 0.5rem; }
-        .scenario { background: var(--bg-light); padding: 1.5rem; border-left: 5px solid var(--secondary-color); margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
-        .scenario strong { color: var(--primary-color); }
-        .back-btn { display: inline-block; padding: 0.7rem 1.8rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; margin-top: 2rem; }
-        .back-btn:hover { background: var(--secondary-color); transform: translateX(5px); }
+        .article-content { 
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px; 
+            padding: 3rem; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            margin-bottom: 4rem; 
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .article-header { 
+            text-align: center; 
+            margin-bottom: 2.5rem; 
+        }
+        .article-badge { 
+            display: inline-block; 
+            background: var(--secondary-color); 
+            color: white; 
+            padding: 0.3rem 1rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+        }
+        .article-title { 
+            color: var(--primary-color); 
+            font-size: 2.5rem; 
+            margin-bottom: 1rem; 
+        }
+        .article-meta { 
+            color: var(--secondary-color); 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            display: block; 
+            margin-bottom: 1.5rem; 
+        }
+        .article-body { 
+            line-height: 1.8; 
+            color: var(--text-dark); 
+        }
+        .article-body h2 { 
+            color: var(--primary-color); 
+            font-size: 1.8rem; 
+            margin: 2rem 0 1rem; 
+            position: relative; 
+            padding-bottom: 0.5rem; 
+        }
+        .article-body h2::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 50px; 
+            height: 3px; 
+            background: var(--secondary-color); 
+        }
+        .article-body h3 { 
+            color: var(--primary-color); 
+            font-size: 1.5rem; 
+            margin: 1.5rem 0 0.8rem; 
+        }
+        .article-body p { 
+            margin-bottom: 1.2rem; 
+        }
+        .article-body ul { 
+            list-style: disc; 
+            padding-left: 1.5rem; 
+            margin-bottom: 1.2rem; 
+        }
+        .article-body ul li { 
+            margin-bottom: 0.5rem; 
+        }
+        .scenario { 
+            background: linear-gradient(135deg, rgba(1, 73, 172, 0.05), rgba(252, 25, 99, 0.05));
+            padding: 1.5rem; 
+            border-left: 5px solid var(--secondary-color); 
+            margin: 1.5rem 0; 
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .scenario strong { 
+            color: var(--primary-color); 
+        }
+        .back-btn { 
+            display: inline-block; 
+            padding: 0.7rem 1.8rem; 
+            background: var(--primary-color); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 25px; 
+            font-weight: 600; 
+            transition: all 0.3s ease; 
+            margin-top: 2rem; 
+        }
+        .back-btn:hover { 
+            background: var(--secondary-color); 
+            transform: translateX(-5px); 
+        }
         
-        .references { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--text-light); }
-        .references h3 { color: var(--primary-color); margin-bottom: 1rem; }
-        .references ul { list-style: none; padding-left: 0; }
-        .references li { margin-bottom: 0.8rem; }
-        .references a { color: var(--primary-color); text-decoration: none; }
-        .references a:hover { text-decoration: underline; }
+        .references { 
+            margin-top: 3rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid var(--text-light); 
+        }
+        .references h3 { 
+            color: var(--primary-color); 
+            margin-bottom: 1rem; 
+        }
+        .references ul { 
+            list-style: none; 
+            padding-left: 0; 
+        }
+        .references li { 
+            margin-bottom: 0.8rem; 
+        }
+        .references a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+        }
+        .references a:hover { 
+            text-decoration: underline; 
+        }
 
-        footer { background: var(--primary-color); color: white; padding: 3rem 1.5rem 1rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-        .footer-section h3 { margin-bottom: 1rem; color: var(--accent-color); }
-        .footer-section p { line-height: 1.8; opacity: 0.9; }
-        .footer-section p a:hover { font-size: 1.2em; }
-        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
-        .social-link { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; }
-        .social-link:hover { background: var(--secondary-color); transform: translateY(-3px); }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.8; }
+        footer { 
+            background: var(--primary-color); 
+            color: white; 
+            padding: 3rem 1.5rem 1rem; 
+        }
+        .footer-content { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 2rem; 
+            margin-bottom: 2rem; 
+        }
+        .footer-section h3 { 
+            margin-bottom: 1rem; 
+            color: var(--accent-color); 
+        }
+        .footer-section p { 
+            line-height: 1.8; 
+            opacity: 0.9; 
+        }
+        .footer-section p a:hover { 
+            font-size: 1.2em; 
+        }
+        .social-links { 
+            display: flex; 
+            gap: 1rem; 
+            margin-top: 1rem; 
+        }
+        .social-link { 
+            width: 45px; 
+            height: 45px; 
+            background: rgba(255,255,255,0.1); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            text-decoration: none; 
+            transition: all 0.3s ease; 
+        }
+        .social-link:hover { 
+            background: var(--secondary-color); 
+            transform: translateY(-3px); 
+        }
+        .footer-bottom { 
+            text-align: center; 
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            opacity: 0.8; 
+        }
 
         @media (max-width: 768px) {
             .hamburger { display: flex; }
-            .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background: white; width: 100%; text-align: center; transition: left 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.05); padding: 1.5rem 0; }
+            .nav-menu { 
+                position: fixed; 
+                left: -100%; 
+                top: 70px; 
+                flex-direction: column; 
+                background: white; 
+                width: 100%; 
+                text-align: center; 
+                transition: left 0.3s ease; 
+                box-shadow: 0 8px 20px rgba(0,0,0,0.05); 
+                padding: 1.5rem 0; 
+            }
             .nav-menu.active { left: 0; }
             .nav-link { padding: 0.8rem; font-size: 1.1rem; }
             .logo img { max-height: 60px; }
@@ -128,7 +462,6 @@
     <section class="container" id="article">
         <article class="article-content">
             <header class="article-header">
-                <!-- <span class="article-badge">Education</span> -->
                 <h1 class="article-title">Menstrual Hygiene: A Comprehensive Guide</h1>
             </header>
             
@@ -147,7 +480,7 @@
                 <p>The reusable cloth pad (different from the sanitary pad) is made from clean cotton material to collect menstrual fluid. The cloth should be changed 3-4 times during the day. The used cloth should be washed separately from other clothes with hot water and soap and dried in the sun. If the cloth must be used again, it must be stored in a dry place. It can either be bought or made locally. This is an alternative for girls in low- and middle-income countries with limited resources.</p>
 
                 <h3>Tampons</h3>
-                <p>Tampons are placed inside the vaginal canal to absorb blood and vaginal secretions during menstruation. These are usually made of cotton or another absorbent material. Tampons are compressed so that they are easy to insert into your vagina. Once inside the body, the tampon expands as it absorbs moisture and blood. Tampons are available in different sizes and absorbencies, depending on how heavy your period is. Some come with disposable plastic or cardboard "applicators" to make them easier to put in and have a string that hangs outside of the body to help you remove the tampon. Tampons should be changed at least every 4 to 8 hours. It can increase the vaginal pH, and predisposes to infection which can lead to a condition called “toxic shock syndrome.” Use the lowest-absorbency tampon needed. If you can wear one tampon for up to 8 hours without changing, the absorbency may be too high.</p>
+                <p>Tampons are placed inside the vaginal canal to absorb blood and vaginal secretions during menstruation. These are usually made of cotton or another absorbent material. Tampons are compressed so that they are easy to insert into your vagina. Once inside the body, the tampon expands as it absorbs moisture and blood. Tampons are available in different sizes and absorbencies, depending on how heavy your period is. Some come with disposable plastic or cardboard "applicators" to make them easier to put in and have a string that hangs outside of the body to help you remove the tampon. Tampons should be changed at least every 4 to 8 hours. It can increase the vaginal pH, and predisposes to infection which can lead to a condition called "toxic shock syndrome." Use the lowest-absorbency tampon needed. If you can wear one tampon for up to 8 hours without changing, the absorbency may be too high.</p>
 
                 <h3>Menstrual Sponges</h3>
                 <p>A menstrual sponge is a natural or synthetic sea sponge inserted into the vaginal canal like a tampon used to absorb menstrual fluid. Sponges absorb menstrual blood better, but it should be changed every 8 hours. It is reusable after cleaning and can be used for up to 6 months.</p>
@@ -190,7 +523,7 @@
                 </ul>
 
                 <h2>Menstrual Hygiene Management</h2>
-                <p>According to Joint Monitoring Programme (JMP) of WHO and UNICEF, menstrual hygiene management refers to: “Women and adolescent girls are using a clean menstrual management material to absorb or collect menstrual blood, that can be changed in privacy as often as necessary for the duration of a menstrual period, using soap and water for washing the body as required, and having access to safe and convenient facilities to dispose of used menstrual management materials”</p>
+                <p>According to Joint Monitoring Programme (JMP) of WHO and UNICEF, menstrual hygiene management refers to: "Women and adolescent girls are using a clean menstrual management material to absorb or collect menstrual blood, that can be changed in privacy as often as necessary for the duration of a menstrual period, using soap and water for washing the body as required, and having access to safe and convenient facilities to dispose of used menstrual management materials"</p>
                 <p>Menstrual Hygiene Management (MHM) refers to the accessibility of a clean menstrual product to absorb or collect blood that can be changed in privacy as often as necessary for the duration of the menstruation period, using soap and water for washing the body as required and having access to facilities to dispose of the used menstrual management materials. Good menstrual hygiene practices include:</p>
                 <ul>
                     <li>Frequent changing of menstrual product</li>
@@ -224,11 +557,11 @@
 
                 <h2>Practical Scenario: Ava's Embarrassment</h2>
                 <div class="scenario">
-                    <p><strong>Ava’s</strong> menstrual period usually starts while in school and her uniform usually gets soiled with her menses. She is generally ashamed of this situation as her friends normally appear prepared for their menses.</p>
+                    <p><strong>Ava's</strong> menstrual period usually starts while in school and her uniform usually gets soiled with her menses. She is generally ashamed of this situation as her friends normally appear prepared for their menses.</p>
                     <p><strong>Solution:</strong> Ava should develop a menstrual plan.</p>
                 </div>
 
-                <a href="blog.html" class="back-btn">Back to Blog <i class="fas fa-arrow-left"></i></a>
+                <a href="blog.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Blog</a>
             </div>
 
             <div class="references">
